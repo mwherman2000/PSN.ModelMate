@@ -1,0 +1,362 @@
+﻿
+CREATE CONSTRAINT ON (d:Device_CoreInventory_MapToolkit) ASSERT d.DeviceNumber IS UNIQUE;
+
+with "jdbc:sqlserver://PSN-W12R2-003:1433;databaseName=MAP_SampleDB;user=sa;password=P@ssword1;" as connstring
+CALL apoc.load.jdbc(connstring,"SELECT TOP 1000 [DeviceNumber]
+      ,[AccountExpires]
+      ,[ActivationRequired]
+      ,CONVERT(VARCHAR, [AdDatetime]) AS AdDatetimeString
+      ,[AdDnsHostName]
+      ,[AdDomainName]
+      ,[AdFullyQualifiedDomainName]
+      ,[AdOsVersion]
+      ,[AdCollector]
+      ,[AdminPasswordStatus]
+      ,[BiosBuildNumber]
+      ,[BiosCharacteristics]
+      ,[BiosCodeset]
+      ,CONVERT(VARCHAR, [BiosInstallDate]) AS BiosInstallDateString
+	  ,[BiosManufacturer]
+      ,[BiosName]
+      ,CONVERT(VARCHAR, [BiosReleaseDate]) AS BiosReleaseDateString
+      ,[BiosSerialNumber]
+      ,[BiosVersion]
+      ,[BootDevice]
+      ,[BootRomSupported]
+      ,[BuildNumber]
+      ,[BusType]
+      ,[ChassisBootUpState]
+      ,[ComputerSystemName]
+      ,[ChassisTypes]
+      ,[CountryCode]
+      ,[CreateCollectorId]
+      ,CONVERT(VARCHAR,[CreateDatetime]) AS CreateDatetimeString
+      ,CONVERT(VARCHAR,[CreationDate]) AS CreationDateString
+      ,[CsdVersion]
+      ,[CurrentLanguage]
+      ,[CurrentTimeZone]
+      ,[DayLightInEffect]
+      ,[Debug]
+      ,[Description]
+      ,[DeviceStatusScm]
+      ,[DeviceStatusSnmp]
+      ,[DeviceStatusWmi]
+      ,[DistinguishedName]
+      ,[DnsHostName]
+      ,[DomainName]
+      ,[DomainRole]
+      ,[Drive]
+      ,[EnableDaylightSavingsTime]
+      ,[EnclosureManufacturer]
+      ,[EnclosureSerialNumber]
+      ,[EncryptionLevel]
+      ,[FreePhysicalMemory]
+      ,[FreeSpace]
+      ,[FreeSpaceInPagingFiles]
+      ,[FreeVirtualMemory]
+      ,[FrontPanelResetStatus]
+      ,[HotSwappable]
+      ,[HostNameForVm]
+      ,[IdentificationCode]
+      ,[InfraredSupported]
+      ,[InsertState]
+      ,[InstallableLanguages]
+      ,[InventoryRowversion]
+      ,[InventoryWatermark]
+      ,[NetworkIpAddress]
+      ,[KeyboardPasswordStatus]
+      ,[LanguageEdition]
+      ,[LargeSystemCache]
+      ,CONVERT(VARCHAR, [LastBootupTime]) AS LastBootupTimeString
+      ,[LastLogonTimestamp]
+      ,[LastUserLogon]
+      ,[LastLoggedOnUser]
+      ,CONVERT(VARCHAR, [LocalDatetime]) AS LocalDatetimeString
+      ,[Locale]
+      ,[Location]
+      ,[LockPresent]
+      ,[MaxNumberOfProcesses]
+      ,[MaxProcessMemorySize]
+      ,[MaximumSize]
+      ,[Model]
+      ,[MuiLanguages]
+      ,[NetServerEnumDomainName]
+      ,[NetServerEnumOsVersion]
+      ,[NetworkServerModeEnabled]
+      ,[NumberOfCores]
+      ,[NumberOfLicensedUsers]
+      ,[NumberOfLogicalProcessors]
+      ,[NumberOfProcessors]
+      ,[NumberOfUsers]
+      ,[ObjectGuid]
+      ,[OperatingSystem]
+      ,[OperatingSystemServicePack]
+      ,[OperatingSystemSku]
+      ,[Organization]
+      ,[OsArchitecture]
+      ,[OsBuildType]
+      ,[OsCaption]
+      ,[OsCodeset]
+      ,[OsEncryptionLevel]
+      ,CONVERT(VARCHAR, [OsInstallDate]) AS OsInstallDateString
+      ,[OsLanguage]
+      ,[OsManufacturer]
+      ,[OsProductSuite]
+      ,[OsVersion]
+      ,[PartNumber]
+      ,[PartOfDomain]
+      ,[PauseAfterReset]
+      ,[PcSystemType]
+      ,[PlusProductId]
+      ,[PlusVersionNumber]
+      ,[PowerOnPasswordStatus]
+      ,[PowerState]
+      ,[PowerSupplyState]
+      ,[PrimaryBios]
+      ,[PrimaryFlag]
+      ,[PrimaryOwnerContact]
+      ,[PrimaryOwnerName]
+      ,[ProductId]
+      ,[ProductType]
+      ,[PwdLastSet]
+      ,[QuantumLength]
+      ,[QuantumType]
+      ,CONVERT(VARCHAR, [RegistryDatetime]) AS RegistryDatetimeString
+      ,[RegistryScanResult]
+      ,[RegisteredUser]
+      ,[RemainingEvaluationPeriod]
+      ,[RemainingGracePeriod]
+      ,[Removable]
+      ,[Replaceable]
+      ,[ResetCapability]
+      ,[ResetCount]
+      ,[ResetLimit]
+      ,[Roles]
+      ,CONVERT(VARCHAR, [ScmDatetime]) AS ScmDateTimeString
+      ,[SecurityBreach]
+      ,[SecurityStatus]
+      ,[SerialNumber]
+      ,[ServerName]
+      ,[ServicePackMajorVersion]
+      ,[ServicePackMinorVersion]
+      ,[SiteName]
+      ,[SmbiosAssetTag]
+      ,[SmbiosBiosVersion]
+      ,[SmbiosMajorVersion]
+      ,[SmbiosMinorVersion]
+      ,[SmbiosPresent]
+      ,[SnmpManufacturerOid]
+      ,[SnmpScanResult]
+      ,[SshScanResult]
+      ,[SuiteMask]
+      ,[SupportContactDescription]
+      ,[SystemDevice]
+      ,[SystemDirectory]
+      ,[SystemDrive]
+      ,[SystemStartupDelay]
+      ,[SystemType]
+      ,[TotalPhysicalMemory]
+      ,[TotalSwapSpaceSize]
+      ,[TotalVirtualMemorySize]
+      ,[TotalVisibleMemorySize]
+      ,[UpdateCollectorId]
+      ,CONVERT(VARCHAR, [UpdateDatetime]) AS UpdateDatetimeString
+      ,[UserName]
+      ,[VmFriendlyName]
+      ,[WakeupType]
+      ,[WindowsDirectory]
+      ,[WinNetworkCollector]
+      ,CONVERT(VARCHAR, [WinNetworkDatetime]) AS WinNetworkDatetimeString
+      ,[WmiChassisTypes]
+      ,CONVERT(VARCHAR, [WmiDatetime]) AS WmiDatetimeString
+      ,[WmiDnsHostName]
+      ,[WmiDomainName]
+      ,[WmiProductType]
+      ,[WmiOsVersion]
+      ,[WmiScanResult]
+      ,CONVERT(VARCHAR, [WmiScanResultDatetime]) AS WmuScanResultDatetimeString
+      ,[WmiDepScanResult]
+      ,CONVERT(VARCHAR, [WmiDepScanResultDatetime]) AS WmiDepScanResultDatetimeString
+      ,[Workgroup]
+  FROM [MAP_SampleDB].[Core_Inventory].[Devices]") YIELD row AS Devices
+WITH Devices 
+MERGE (d:Device_CoreInventory_MapToolkit {
+MapToolkitVersion: "0.94",
+DeviceNumber: coalesce(Devices.DeviceNumber, "NULL"),
+AccountExpires: coalesce(Devices.AccountExpires, "NULL"),
+ActivationRequired: coalesce(Devices.ActivationRequired, "NULL"),
+AdDatetimeString: coalesce(Devices.AdDatetimeString, "NULL"),
+AdDnsHostName: coalesce(Devices.AdDnsHostName, "NULL"),
+AdDomainName: coalesce(Devices.AdDomainName, "NULL"),
+AdFullyQualifiedDomainName: coalesce(Devices.AdFullyQualifiedDomainName, "NULL"),
+AdOsVersion: coalesce(Devices.AdOsVersion, "NULL"),
+AdCollector: coalesce(Devices.AdCollector, "NULL"),
+AdminPasswordStatus: coalesce(Devices.AdminPasswordStatus, "NULL"),
+BiosBuildNumber: coalesce(Devices.BiosBuildNumber, "NULL"),
+BiosCharacteristics: coalesce(Devices.BiosCharacteristics, "NULL"),
+BiosCodeset: coalesce(Devices.BiosCodeset, "NULL"),
+BiosInstallDate: coalesce(Devices.BiosInstallDate, "NULL"),
+BiosManufacturer: coalesce(Devices.BiosManufacturer, "NULL"),
+BiosName: coalesce(Devices.BiosName, "NULL"),
+BiosReleaseDateString: coalesce(Devices.BiosReleaseDateString, "NULL"),
+BiosSerialNumber: coalesce(Devices.BiosSerialNumber, "NULL"),
+BiosVersion: coalesce(Devices.BiosVersion, "NULL"),
+BootDevice: coalesce(Devices.BootDevice, "NULL"),
+BootRomSupported: coalesce(Devices.BootRomSupported, "NULL"),
+BuildNumber: coalesce(Devices.BuildNumber, "NULL"),
+BusType: coalesce(Devices.BusType, "NULL"),
+ChassisBootUpState: coalesce(Devices.ChassisBootUpState, "NULL"),
+ComputerSystemName: coalesce(Devices.ComputerSystemName, "NULL"),
+ChassisTypes: coalesce(Devices.ChassisTypes, "NULL"),
+CountryCode: coalesce(Devices.CountryCode, "NULL"),
+CreateCollectorId: coalesce(Devices.CreateCollectorId, "NULL"),
+CreateDatetimeString: coalesce(Devices.CreateDatetimeString, "NULL"),
+CreationDate: coalesce(Devices.CreationDate, "NULL"),
+CsdVersion: coalesce(Devices.CsdVersion, "NULL"),
+CurrentLanguage: coalesce(Devices.CurrentLanguage, "NULL"),
+CurrentTimeZone: coalesce(Devices.CurrentTimeZone, "NULL"),
+DayLightInEffect: coalesce(Devices.DayLightInEffect, "NULL"),
+Debug: coalesce(Devices.Debug, "NULL"),
+Description: coalesce(Devices.Description, "NULL"),
+DeviceStatusScm: coalesce(Devices.DeviceStatusScm, "NULL"),
+DeviceStatusSnmp: coalesce(Devices.DeviceStatusSnmp, "NULL"),
+DeviceStatusWmi: coalesce(Devices.DeviceStatusWmi, "NULL"),
+DistinguishedName: coalesce(Devices.DistinguishedName, "NULL"),
+DnsHostName: coalesce(Devices.DnsHostName, "NULL"),
+DomainName: coalesce(Devices.DomainName, "NULL"),
+DomainRole: coalesce(Devices.DomainRole, "NULL"),
+Drive: coalesce(Devices.Drive, "NULL"),
+EnableDaylightSavingsTime: coalesce(Devices.EnableDaylightSavingsTime, "NULL"),
+EnclosureManufacturer: coalesce(Devices.EnclosureManufacturer, "NULL"),
+EnclosureSerialNumber: coalesce(Devices.EnclosureSerialNumber, "NULL"),
+EncryptionLevel: coalesce(Devices.EncryptionLevel, "NULL"),
+FreePhysicalMemory: coalesce(Devices.FreePhysicalMemory, "NULL"),
+FreeSpace: coalesce(Devices.FreeSpace, "NULL"),
+FreeSpaceInPagingFiles: coalesce(Devices.FreeSpaceInPagingFiles, "NULL"),
+FreeVirtualMemory: coalesce(Devices.FreeVirtualMemory, "NULL"),
+FrontPanelResetStatus: coalesce(Devices.FrontPanelResetStatus, "NULL"),
+HotSwappable: coalesce(Devices.HotSwappable, "NULL"),
+HostNameForVm: coalesce(Devices.HostNameForVm, "NULL"),
+IdentificationCode: coalesce(Devices.IdentificationCode, "NULL"),
+InfraredSupported: coalesce(Devices.InfraredSupported, "NULL"),
+InsertState: coalesce(Devices.InsertState, "NULL"),
+InstallableLanguages: coalesce(Devices.InstallableLanguages, "NULL"),
+InventoryRowversion: coalesce(Devices.InventoryRowversion, "NULL"),
+InventoryWatermark: coalesce(Devices.InventoryWatermark, "NULL"),
+NetworkIpAddress: coalesce(Devices.NetworkIpAddress, "NULL"),
+KeyboardPasswordStatus: coalesce(Devices.KeyboardPasswordStatus, "NULL"),
+LanguageEdition: coalesce(Devices.LanguageEdition, "NULL"),
+LargeSystemCache: coalesce(Devices.LargeSystemCache, "NULL"),
+LastBootupTime: coalesce(Devices.LastBootupTime, "NULL"),
+LastLogonTimestamp: coalesce(Devices.LastLogonTimestamp, "NULL"),
+LastUserLogon: coalesce(Devices.LastUserLogon, "NULL"),
+LastLoggedOnUser: coalesce(Devices.LastLoggedOnUser, "NULL"),
+LocalDatetimeString: coalesce(Devices.LocalDatetimeString, "NULL"),
+Locale: coalesce(Devices.Locale, "NULL"),
+Location: coalesce(Devices.Location, "NULL"),
+LockPresent: coalesce(Devices.LockPresent, "NULL"),
+MaxNumberOfProcesses: coalesce(Devices.MaxNumberOfProcesses, "NULL"),
+MaxProcessMemorySize: coalesce(Devices.MaxProcessMemorySize, "NULL"),
+MaximumSize: coalesce(Devices.MaximumSize, "NULL"),
+Model: coalesce(Devices.Model, "NULL"),
+MuiLanguages: coalesce(Devices.MuiLanguages, "NULL"),
+NetServerEnumDomainName: coalesce(Devices.NetServerEnumDomainName, "NULL"),
+NetServerEnumOsVersion: coalesce(Devices.NetServerEnumOsVersion, "NULL"),
+NetworkServerModeEnabled: coalesce(Devices.NetworkServerModeEnabled, "NULL"),
+NumberOfCores: coalesce(Devices.NumberOfCores, "NULL"),
+NumberOfLicensedUsers: coalesce(Devices.NumberOfLicensedUsers, "NULL"),
+NumberOfLogicalProcessors: coalesce(Devices.NumberOfLogicalProcessors, "NULL"),
+NumberOfProcessors: coalesce(Devices.NumberOfProcessors, "NULL"),
+NumberOfUsers: coalesce(Devices.NumberOfUsers, "NULL"),
+ObjectGuid: coalesce(Devices.ObjectGuid, "NULL"),
+OperatingSystem: coalesce(Devices.OperatingSystem, "NULL"),
+OperatingSystemServicePack: coalesce(Devices.OperatingSystemServicePack, "NULL"),
+OperatingSystemSku: coalesce(Devices.OperatingSystemSku, "NULL"),
+Organization: coalesce(Devices.Organization, "NULL"),
+OsArchitecture: coalesce(Devices.OsArchitecture, "NULL"),
+OsBuildType: coalesce(Devices.OsBuildType, "NULL"),
+OsCaption: coalesce(Devices.OsCaption, "NULL"),
+OsCodeset: coalesce(Devices.OsCodeset, "NULL"),
+OsEncryptionLevel: coalesce(Devices.OsEncryptionLevel, "NULL"),
+OsInstallDate: coalesce(Devices.OsInstallDate, "NULL"),
+OsLanguage: coalesce(Devices.OsLanguage, "NULL"),
+OsManufacturer: coalesce(Devices.OsManufacturer, "NULL"),
+OsProductSuite: coalesce(Devices.OsProductSuite, "NULL"),
+OsVersion: coalesce(Devices.OsVersion, "NULL"),
+PartNumber: coalesce(Devices.PartNumber, "NULL"),
+PartOfDomain: coalesce(Devices.PartOfDomain, "NULL"),
+PauseAfterReset: coalesce(Devices.PauseAfterReset, "NULL"),
+PcSystemType: coalesce(Devices.PcSystemType, "NULL"),
+PlusProductId: coalesce(Devices.PlusProductId, "NULL"),
+PlusVersionNumber: coalesce(Devices.PlusVersionNumber, "NULL"),
+PowerOnPasswordStatus: coalesce(Devices.PowerOnPasswordStatus, "NULL"),
+PowerState: coalesce(Devices.PowerState, "NULL"),
+PowerSupplyState: coalesce(Devices.PowerSupplyState, "NULL"),
+PrimaryBios: coalesce(Devices.PrimaryBios, "NULL"),
+PrimaryFlag: coalesce(Devices.PrimaryFlag, "NULL"),
+PrimaryOwnerContact: coalesce(Devices.PrimaryOwnerContact, "NULL"),
+PrimaryOwnerName: coalesce(Devices.PrimaryOwnerName, "NULL"),
+ProductId: coalesce(Devices.ProductId, "NULL"),
+ProductType: coalesce(Devices.ProductType, "NULL"),
+PwdLastSet: coalesce(Devices.PwdLastSet, "NULL"),
+QuantumLength: coalesce(Devices.QuantumLength, "NULL"),
+QuantumType: coalesce(Devices.QuantumType, "NULL"),
+RegistryDatetimeString: coalesce(Devices.RegistryDatetimeString, "NULL"),
+RegistryScanResult: coalesce(Devices.RegistryScanResult, "NULL"),
+RegisteredUser: coalesce(Devices.RegisteredUser, "NULL"),
+RemainingEvaluationPeriod: coalesce(Devices.RemainingEvaluationPeriod, "NULL"),
+RemainingGracePeriod: coalesce(Devices.RemainingGracePeriod, "NULL"),
+Removable: coalesce(Devices.Removable, "NULL"),
+Replaceable: coalesce(Devices.Replaceable, "NULL"),
+ResetCapability: coalesce(Devices.ResetCapability, "NULL"),
+ResetCount: coalesce(Devices.ResetCount, "NULL"),
+ResetLimit: coalesce(Devices.ResetLimit, "NULL"),
+Roles: coalesce(Devices.Roles, "NULL"),
+ScmDateTimeString: coalesce(Devices.ScmDateTimeString, "NULL"),
+SecurityBreach: coalesce(Devices.SecurityBreach, "NULL"),
+SecurityStatus: coalesce(Devices.SecurityStatus, "NULL"),
+SerialNumber: coalesce(Devices.SerialNumber, "NULL"),
+ServerName: coalesce(Devices.ServerName, "NULL"),
+ServicePackMajorVersion: coalesce(Devices.ServicePackMajorVersion, "NULL"),
+ServicePackMinorVersion: coalesce(Devices.ServicePackMinorVersion, "NULL"),
+SiteName: coalesce(Devices.SiteName, "NULL"),
+SmbiosAssetTag: coalesce(Devices.SmbiosAssetTag, "NULL"),
+SmbiosBiosVersion: coalesce(Devices.SmbiosBiosVersion, "NULL"),
+SmbiosMajorVersion: coalesce(Devices.SmbiosMajorVersion, "NULL"),
+SmbiosMinorVersion: coalesce(Devices.SmbiosMinorVersion, "NULL"),
+SmbiosPresent: coalesce(Devices.SmbiosPresent, "NULL"),
+SnmpManufacturerOid: coalesce(Devices.SnmpManufacturerOid, "NULL"),
+SnmpScanResult: coalesce(Devices.SnmpScanResult, "NULL"),
+SshScanResult: coalesce(Devices.SshScanResult, "NULL"),
+SuiteMask: coalesce(Devices.SuiteMask, "NULL"),
+SupportContactDescription: coalesce(Devices.SupportContactDescription, "NULL"),
+SystemDevice: coalesce(Devices.SystemDevice, "NULL"),
+SystemDirectory: coalesce(Devices.SystemDirectory, "NULL"),
+SystemDrive: coalesce(Devices.SystemDrive, "NULL"),
+SystemStartupDelay: coalesce(Devices.SystemStartupDelay, "NULL"),
+SystemType: coalesce(Devices.SystemType, "NULL"),
+TotalPhysicalMemory: coalesce(Devices.TotalPhysicalMemory, "NULL"),
+TotalSwapSpaceSize: coalesce(Devices.TotalSwapSpaceSize, "NULL"),
+TotalVirtualMemorySize: coalesce(Devices.TotalVirtualMemorySize, "NULL"),
+TotalVisibleMemorySize: coalesce(Devices.TotalVisibleMemorySize, "NULL"),
+UpdateCollectorId: coalesce(Devices.UpdateCollectorId, "NULL"),
+UpdateDatetimeString: coalesce(Devices.UpdateDatetimeString, "NULL"),
+UserName: coalesce(Devices.UserName, "NULL"),
+VmFriendlyName: coalesce(Devices.VmFriendlyName, "NULL"),
+WakeupType: coalesce(Devices.WakeupType, "NULL"),
+WindowsDirectory: coalesce(Devices.WindowsDirectory, "NULL"),
+WinNetworkCollector: coalesce(Devices.WinNetworkCollector, "NULL"),
+WinNetworkDatetimeString: coalesce(Devices.WinNetworkDatetimeString, "NULL"),
+WmiChassisTypes: coalesce(Devices.WmiChassisTypes, "NULL"),
+WmiDatetimeString: coalesce(Devices.WmiDatetimeString, "NULL"),
+WmiDnsHostName: coalesce(Devices.WmiDnsHostName, "NULL"),
+WmiDomainName: coalesce(Devices.WmiDomainName, "NULL"),
+WmiProductType: coalesce(Devices.WmiProductType, "NULL"),
+WmiOsVersion: coalesce(Devices.WmiOsVersion, "NULL"),
+WmiScanResult: coalesce(Devices.WmiScanResult, "NULL"),
+WmuScanResultDatetimeString: coalesce(Devices.WmuScanResultDatetimeString, "NULL"),
+WmiDepScanResult: coalesce(Devices.WmiDepScanResult, "NULL"),
+WmiDepScanResultDatetimeString: coalesce(Devices.WmiDepScanResultDatetimeString, "NULL"),
+Workgroup: coalesce(Devices.Workgroup, "NULL"),
+_Created: timestamp()
+})

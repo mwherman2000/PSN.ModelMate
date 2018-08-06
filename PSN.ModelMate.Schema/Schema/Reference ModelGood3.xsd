@@ -1,0 +1,400 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" targetNamespace="http://www.opengroup.org/xsd/archimate" 
+  attributeFormDefault="qualified" elementFormDefault="qualified" 
+  xmlns:mstns="http://www.opengroup.org/xsd/archimate" 
+  xmlns="http://www.opengroup.org/xsd/archimate" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+>
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" /> <!--schemaLocation="http://www.w3.org/2001/xml.xsd"-->
+  <xs:import namespace="http://purl.org/dc/elements/1.1/"     schemaLocation="http://dublincore.org/schemas/xmls/qdc/dc.xsd" />
+
+  <xs:element name="documentation" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="documentation_Text" msdata:Ordinal="1">
+        <xs:extension base="xs:string">
+          <xs:attribute ref="xml:lang" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="label" nillable="true">
+    <xs:complexType>
+      <xs:simpleContent msdata:ColumnName="label_Text" msdata:Ordinal="1">
+        <xs:extension base="xs:string">
+          <xs:attribute ref="xml:lang" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="item" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="label" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="optional" />
+      <xs:attribute name="identifierref" type="xs:IDREF" use="optional" />
+      <!--<xs:attribute name="identifierref" form="unqualified" type="xs:string" />-->
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="node">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="style" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="label" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="identifier" use="required" type="xs:ID" />
+      <xs:attribute name="elementref" type="xs:IDREF" use="optional" />
+      <!--<xs:attribute name="identifier" form="unqualified" type="xs:string" />-->
+      <!--<xs:attribute name="elementref" form="unqualified" type="xs:string" />-->
+      <xs:attribute name="x" form="unqualified" type="xs:integer" />
+      <xs:attribute name="y" form="unqualified" type="xs:integer" />
+      <xs:attribute name="w" form="unqualified" type="xs:integer" />
+      <xs:attribute name="h" form="unqualified" type="xs:integer" />
+      <xs:attribute name="type" use="optional" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="style">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fillColor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="r" form="unqualified" type="xs:integer" />
+            <xs:attribute name="g" form="unqualified" type="xs:integer" />
+            <xs:attribute name="b" form="unqualified" type="xs:integer" />
+            <!--<xs:attribute name="a" form="unqualified" type="xs:integer" />-->
+            <xs:attribute name="a" use="optional">
+              <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="lineColor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="r" form="unqualified" type="xs:integer" />
+            <xs:attribute name="g" form="unqualified" type="xs:integer" />
+            <xs:attribute name="b" form="unqualified" type="xs:integer" />
+            <!--<xs:attribute name="a" form="unqualified" type="xs:integer" />-->
+            <xs:attribute name="a" use="optional">
+              <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="font" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="color" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="r" form="unqualified" type="xs:integer" />
+                  <xs:attribute name="g" form="unqualified" type="xs:integer" />
+                  <xs:attribute name="b" form="unqualified" type="xs:integer" />
+                  <!--<xs:attribute name="a" form="unqualified" type="xs:integer" />-->
+                  <xs:attribute name="a" use="optional">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="100"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <!--<xs:attribute name="name" form="unqualified" type="xs:string" />-->
+            <!--<xs:attribute name="size" form="unqualified" type="xs:string" />-->
+            <!--<xs:attribute name="style" form="unqualified" type="xs:string" />-->
+            <xs:attribute name="name" type="xs:string" use="optional"/>
+            <xs:attribute name="size" type="xs:decimal" use="optional"/>
+            <xs:attribute name="style" type="xs:string" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <!--<xs:attribute name="lineWidth" form="unqualified" type="xs:string" />-->
+      <xs:attribute name="lineWidth" use="optional" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="model">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="schema" type="xs:string" minOccurs="0" />
+              <xs:element name="schemaversion" type="xs:string" minOccurs="0" />
+              
+              <!--<xs:element ref="dc:title" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:creator" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:subject" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:description" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:format" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:language" type="xs:string" minOccurs="0" />-->
+
+              <xs:element name="title" type="xs:string" minOccurs="0" />
+              <xs:element name="creator" type="xs:string" minOccurs="0" />
+              <xs:element name="subject" type="xs:string"  minOccurs="0" />
+              <xs:element name="description" type="xs:string" minOccurs="0" />
+              <xs:element name="format" type="xs:string"  minOccurs="0" />
+              <xs:element name="language" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="name" nillable="true" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent msdata:ColumnName="name_Text" msdata:Ordinal="1">
+              <xs:extension base="xs:string">
+                <xs:attribute ref="xml:lang" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="documentation" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="properties" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent msdata:ColumnName="value_Text" msdata:Ordinal="1">
+                          <xs:extension base="xs:string">
+                            <xs:attribute ref="xml:lang" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="identifierref" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="elements" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="element" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="label" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                  <xs:attribute name="identifier" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="relationships" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="relationship" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="label" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                  <xs:attribute name="identifier" use="required" type="xs:ID" />
+                  <xs:attribute name="relationshipref" type="xs:IDREF" use="optional" />
+                  <!--<xs:attribute name="identifier" form="unqualified" type="xs:string" />-->
+                  <xs:attribute name="source" form="unqualified" type="xs:string" />
+                  <xs:attribute name="target" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="organization" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="item" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="propertydefs" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="propertydef" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="identifier" form="unqualified" type="xs:string" />
+                  <xs:attribute name="name" form="unqualified" type="xs:string" />
+                  <xs:attribute name="type" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="views" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="view" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="label" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="documentation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="connection" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="bendpoint" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="x" form="unqualified" type="xs:integer" />
+                              <xs:attribute name="y" form="unqualified" type="xs:integer" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element ref="style" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                        <xs:attribute name="identifier" form="unqualified" type="xs:string" />
+                        <xs:attribute name="relationshipref" form="unqualified" type="xs:string" />
+                        <xs:attribute name="source" form="unqualified" type="xs:string" />
+                        <xs:attribute name="target" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="identifier" use="required" type="xs:ID" />
+                  <xs:attribute name="viewpoint" use="optional" type="viewpointsEnum" />
+                  <!--<xs:attribute name="identifier" form="unqualified" type="xs:string" />-->
+                  <!--<xs:attribute name="viewpoint" form="unqualified" type="xs:string" />-->
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="identifier" form="unqualified" type="xs:string" />
+      <xs:attribute name="version" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="viewpointsEnum">
+      <xs:annotation>
+          <xs:documentation>
+              Enumeration of Viewpoint types.
+          </xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="Introductory"/>
+          <xs:enumeration value="Organization"/>
+          <xs:enumeration value="Actor Co-operation"/>
+          <xs:enumeration value="Business Function"/>
+          <xs:enumeration value="Business Process"/>
+          <xs:enumeration value="Business Process Co-operation"/>
+          <xs:enumeration value="Product"/>
+          <xs:enumeration value="Application Behavior"/>
+          <xs:enumeration value="Application Co-operation"/>
+          <xs:enumeration value="Application Structure"/>
+          <xs:enumeration value="Application Usage"/>
+          <xs:enumeration value="Infrastructure"/>
+          <xs:enumeration value="Infrastructure Usage"/>
+          <xs:enumeration value="Implementation and Deployment"/>
+          <xs:enumeration value="Information Structure"/>
+          <xs:enumeration value="Service Realization"/>
+          <xs:enumeration value="Layered"/>
+          <xs:enumeration value="Landscape Map"/>
+          <xs:enumeration value="Stakeholder"/>
+          <xs:enumeration value="Goal Realization"/>
+          <xs:enumeration value="Goal Contribution"/>
+          <xs:enumeration value="Principles"/>
+          <xs:enumeration value="Requirements Realization"/>
+          <xs:enumeration value="Motivation"/>
+          <xs:enumeration value="Project"/>
+          <xs:enumeration value="Migration"/>
+          <xs:enumeration value="Implementation and Migration"/>
+      </xs:restriction>
+  </xs:simpleType>
+    
+  <xs:element name="tenant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="schema" type="xs:string" minOccurs="0" />
+              <xs:element name="schemaversion" type="xs:string" minOccurs="0" />
+              
+              <!--<xs:element ref="dc:title" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:creator" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:subject" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:description" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:format" type="xs:string" minOccurs="0" />
+              <xs:element ref="dc:language" type="xs:string" minOccurs="0" />-->
+
+              <xs:element name="title" type="xs:string" minOccurs="0" />
+              <xs:element name="creator" type="xs:string" minOccurs="0" />
+              <xs:element name="subject" type="xs:string"  minOccurs="0" />
+              <xs:element name="description" type="xs:string" minOccurs="0" />
+              <xs:element name="format" type="xs:string"  minOccurs="0" />
+              <xs:element name="language" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="name" nillable="true" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent msdata:ColumnName="name_Text" msdata:Ordinal="1">
+              <xs:extension base="xs:string">
+                <xs:attribute ref="xml:lang" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="documentation" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="properties" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="value" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent msdata:ColumnName="value_Text" msdata:Ordinal="1">
+                          <xs:extension base="xs:string">
+                            <xs:attribute ref="xml:lang" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="identifierref" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="models" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="model" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="identifier" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="PSNTEAMRepository" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="documentation" />
+        <xs:element ref="label" />
+        <xs:element ref="item" />
+        <xs:element ref="node" />
+        <xs:element ref="style" />
+        <xs:element ref="model" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

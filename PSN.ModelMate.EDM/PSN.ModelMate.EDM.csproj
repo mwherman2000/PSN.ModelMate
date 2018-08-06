@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F833B69-927C-4BA5-BB4C-5F9A00AD117C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PSN.ModelMate.EDM</RootNamespace>
+    <AssemblyName>PSN.ModelMate.EDM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bendpoint.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="color.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="connection.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="documentation.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="element.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="elements.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fillColor.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folder.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="folders.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="font.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="item.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="label.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lineColor.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="management.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="metadata.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMateEFModel9Context.cs" />
+    <Compile Include="models.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="name.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="node.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="organization.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="performance.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="processinghistory.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="properties.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="property.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="propertydef.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="propertydefs.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSN.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSN.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSN.ModelMate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSN.ModelMate.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="relationship.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="relationships.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="style.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tenant.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="timesnap.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usage.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="value.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="views.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PSN.ModelMate.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PSN.ModelMate.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="PSN.ModelMate.edmx.diagram">
+      <DependentUpon>PSN.ModelMate.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PSN.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PSN.ModelMate.edmx</DependentUpon>
+      <LastGenOutput>PSN.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PSN.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PSN.ModelMate.edmx</DependentUpon>
+      <LastGenOutput>PSN.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

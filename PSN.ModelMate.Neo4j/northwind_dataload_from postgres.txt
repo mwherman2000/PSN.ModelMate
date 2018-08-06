@@ -1,0 +1,77 @@
+//Important note: Data types like Date and bytea have to be converted to String then only they can will be read in Neo4j.
+
+CREATE INDEX ON :Product(productID);
+CREATE INDEX ON :Category(categoryID);
+CREATE INDEX ON :Supplier(supplierID);
+CREATE INDEX ON :Customer(customerID)
+CREATE INDEX ON :Order(orderID);
+
+
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','select p.productid,p.productname, p.unitprice, p.unitsInStock, p.unitsOnOrder,p.reorderLevel, p.discontinued  from products as p') yield row
+CREATE (n:Product)
+SET n = row,
+  n.unitPrice = toFloat(row.unitPrice),
+  n.unitsInStock = toInt(row.unitsInStock), n.unitsOnOrder = toInt(row.unitsOnOrder),
+  n.reorderLevel = toInt(row.reorderLevel), n.discontinued = (row.discontinued <> "0");
+
+
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','select categoryid, categoryname, description from categories') yield row
+CREATE (n:Category)
+SET n = row;
+
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','suppliers') yield row
+CREATE (n:Supplier)
+SET n = row;
+
+//Create data relationships
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','products') yield row
+MATCH (p:Product), (c:Category)
+WHERE p.productid = row.productid
+and c.categoryid = row.categoryid
+CREATE (p)-[:PART_OF]->(c);
+
+//Create data relationships
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','products') yield row
+MATCH (p:Product), (s:Supplier)
+WHERE p.productid = row.productid
+and s.supplierid = row.supplierid
+CREATE (s)-[:SUPPLIES]->(p);
+
+//List the product categories provided by each supplier.
+MATCH (s:Supplier)-->(:Product)-->(c:Category)
+RETURN s.companyname as Company, collect(distinct c.categoryname) as Categories;
+
+
+//Find the produce suppliers.
+MATCH (c:Category {categoryname:"Produce"})<--(:Product)<--(s:Supplier)
+RETURN DISTINCT s.companyname as ProduceSuppliers;
+
+
+//Load next set of Data
+
+
+
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','customers') yield row
+CREATE (n:Customer)
+SET n = row
+
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password',"select orderid, customerid, employeeid, to_char(orderdate,'YYYY-MM-DD'), to_char(requireddate,'YYYY-MM-DD'), to_char(shippeddate,'YYYY-MM-DD'), shipvia, freight, shipname, shipaddress, shipcity, shipregion, shippostalcode,  shipcountry from orders") yield row
+CREATE (n:Order)
+SET n = row
+
+MATCH (c:Customer),(o:Order)
+WHERE c.customerid = o.customerid
+CREATE (c)-[:PURCHASED]->(o);
+
+
+call apoc.load.jdbc('jdbc:postgresql://localhost/northwind?user=postgres&password=password','order_details') yield row
+MATCH (p:Product), (o:Order)
+WHERE p.productid = row.productid AND o.orderid = row.orderid
+CREATE (o)-[details:ORDERS]->(p)
+SET details = row,
+  details.quantity = toInt(row.quantity)
+
+
+MATCH (cust:Customer)-[:PURCHASED]->(:Order)-[o:ORDERS]->(p:Product),
+      (p)-[:PART_OF]->(c:Category {categoryname:"Produce"})
+RETURN DISTINCT cust.contactname as CustomerName, SUM(o.quantity) AS TotalProductsPurchased

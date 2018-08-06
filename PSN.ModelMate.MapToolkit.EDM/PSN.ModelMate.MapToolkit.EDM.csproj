@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF6F0798-3BCF-4C73-9C6F-536CF670645A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PSN.ModelMate.MapToolkit.EDM</RootNamespace>
+    <AssemblyName>PSN.ModelMate.MapToolkit.EDM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveSyncDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdActiveSync.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdDiscoveredDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdDiscoveredUser.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdElcFolder.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdForestDomain.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdMailboxDatabas.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdMailboxItem.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdPremiumJournaling.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdRoot.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdServer.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppConfig.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppConfigDbSelection.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppConfigSelectedConfig.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssessmentSummary.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssessmentSummary1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BinaryFile.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BrowserExtension.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateConnectionString.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategorizedDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CdromDrive.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CdromDrives1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CollectorClassDetail.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CollectorClassesToCollect.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CollectorClassStatu.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonAreaPhone.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerSystemProduct.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigDbDsn.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="configuration.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Control.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Databas.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseFileGroup.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseProperty.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseSchema.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabasesCounter.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseServerConfiguration.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseServerProperty.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseUserGroup.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFile.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFile1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Device.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceAssessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceConnectionError.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceHash.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceInventoryStat.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceQueueWatermark.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceUserProfile.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiskDrive.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Distribution.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DnsConfiguration.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Edition.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExchangeServer.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FepAccessLicense.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Filesystem.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEndServer.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Guest.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Guest1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuestFileinfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuestMetric.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuestUnique.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HardwareAssessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HardwareInventoryCore.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HardwareInventoryEx.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HomeName.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Host.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Host1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HostGuest.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HostGuestDetail.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HostMetric.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HostUnique.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HypervFasttrackCustomization.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISApplicationPool.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISEnabledService.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISVirtualDirApplication.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISVirtualDirApplicationsSubdir.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISWebInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISWebServerSetting.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IISWebStatu.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infra.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraConfig.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraHost.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfraMetric.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InstalledDotnetFramework.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="instance.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InternetBrowser.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryVersion.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LicensingAssessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedString.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogicalDisk.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MailboxContainer.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MdtDeploymentTattoo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetricAggregation.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetricPerTimeInterval.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetricType.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterAvailableDisk.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterCluster.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterClusterSharedVolume.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterDisk.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterDiskPartition.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterNetwork.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterNetworkInterface.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterNode.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterResource.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterResourceGroup.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterResourceType.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSClusterService.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetworkAdapter.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetworkAdapterConfiguration.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NetworkAdapters1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OemData.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Office2010Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Office365Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Option.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OsFamilyNameInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OsFamilyNameInfo1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OsInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OsSkuInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OsVersionInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PciDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhysicalMemory.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PnpEntity.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PowerShellComputerName.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Processor.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Processors1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Processors2.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessorVelocityMap.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCode.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products1.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products2.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products3.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsSwid.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsUninstall.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProviderLocation.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSMailboxItem.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSN.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSN.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PSN.MapToolkit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSN.MapToolkit.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RawMetric.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RDLicensingIssuedLicens.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RDLicensingKeyPack.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RDLicensingServer.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistryAttribute.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoiStatu.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SCDiscoveredDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaObject.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Server.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerAssessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerFeature.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerRoleAssessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmbiosInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsSite.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsSiteSystemSummarizer.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsUTDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsUTUser.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoftwareLicensingProduct.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoundDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlApplianceCustomization.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlInstance.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SspInstallTattoo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyHistory.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SurveySummary.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeInterval.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniqueDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnixTypeInfo.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageDeviceSummary.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageHour.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageLogFile.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageLogFilesDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageLogSource.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageRecord.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageRecordEvent.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageServiceInstance.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageTrackerFilterDate.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageTrackerSoftwareProduct.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsageUser.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VCenter.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VdiConsolidationResult.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VdiWorkloadConsolidation.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VideoController.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VirtualDisk.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VMQualification.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows10Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows7Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows8Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsInstalledSoftwareFull.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsThinPcAssessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkLoadDevice.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkLoadPerfMetric.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkLoadProfile.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WS2008R2Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WS2012Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WS2012R2Assessment.cs">
+      <DependentUpon>PSN.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="PSN.MapToolkit.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PSN.MapToolkit.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PSN.MapToolkit.edmx.diagram">
+      <DependentUpon>PSN.MapToolkit.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PSN.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PSN.MapToolkit.edmx</DependentUpon>
+      <LastGenOutput>PSN.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PSN.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PSN.MapToolkit.edmx</DependentUpon>
+      <LastGenOutput>PSN.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

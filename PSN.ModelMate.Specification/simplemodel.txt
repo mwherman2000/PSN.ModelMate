@@ -1,0 +1,19 @@
+﻿MATCH (x:FooNode) DETACH DELETE x RETURN COUNT(*);
+
+CREATE CONSTRAINT ON (x:FooNode)  ASSERT x.name IS UNIQUE;
+
+CREATE (a:FooNode {name: 'a'}), (b:FooNode {name: 'b'}), (c:FooNode {name: 'c'}), 
+       (d:FooNode {name: 'd'}), (e:FooNode {name: 'e'}), (f:FooNode {name: 'f'}),
+  (a)-[:FooRelation1 {weight: 1}]->(b),
+  (a)-[:FooRelation2 {weight: 2}]->(b),
+  (a)-[:FooRelation3 {weight: 3}]->(b),
+  (a)-[:FooRelation2 {weight: 2}]->(e),
+  (a)-[:FooRelation4 {weight: 4}]->(e),
+  (a)-[:FooRelation6 {weight: 6}]->(e),
+  (e)-[:FooRelation1 {weight: 3}]->(c),
+  (e)-[:FooRelation2 {weight: 1}]->(f),
+  (c)-[:FooRelation3 {weight: 3}]->(d);
+
+MATCH p = (s:FooNode) -[r]-> (t:FooNode) 
+WITH DISTINCT {left: s.name, right: t.name} as Distincts
+RETURN Distincts

@@ -1,0 +1,148 @@
+﻿//DROP CONSTRAINT ON (d:NetworkAdapterConfiguration_Win_Inventory_MapToolkit) ASSERT d.DeviceNumber_Uid IS UNIQUE;
+CREATE CONSTRAINT ON (d:NetworkAdapterConfiguration_Win_Inventory_MapToolkit) ASSERT d.DeviceNumber_Uid IS UNIQUE;
+CREATE INDEX on :NetworkAdapterConfiguration_Win_Inventory_MapToolkit(DeviceName)
+CREATE INDEX on :NetworkAdapterConfiguration_Win_Inventory_MapToolkit(Uid)
+
+with "jdbc:sqlserver://PSN-W12R2-003:1433;databaseName=MAP_SampleDB;user=sa;password=P@ssword1;" as connstring
+CALL apoc.load.jdbc(connstring, 
+"SELECT [DeviceNumber]
+      ,[Uid]
+      ,[ArpAlwaysSourceRoute]
+      ,[ArpUseEtherSnap]
+      ,[Caption]
+      ,[CreateCollectorId]
+      ,CONVERT(VARCHAR,[CreateDatetime]) AS CreateDatetimeString
+      ,[DatabasePath]
+      ,[DeadgwDetectEnabled]
+      ,[DefaultIpGateway]
+      ,[DefaultTos]
+      ,[DefaultTtl]
+      ,[Description]
+      ,[DeviceId]
+      ,[DhcpEnabled]
+      ,[DhcpLeaseExpires]
+      ,[DhcpLeaseObtained]
+      ,[DhcpServer]
+      ,[DnsDomain]
+      ,[DnsDomainSuffixSearchOrder]
+      ,[DnsEnabledForWinsResolution]
+      ,[DnsServerSearchOrder]
+      ,[DomainDnsRegistrationEnabled]
+      ,[ForwardBufferMemory]
+      ,[FullDnsRegistrationEnabled]
+      ,[GatewayCostMetric]
+      ,[IgmpLevel]
+      ,[IndexId]
+      ,[InterfaceIndex]
+      ,[IpAddress]
+      ,[IpConnectionMetric]
+      ,[IpEnabled]
+      ,[IpFilterSecurityEnabled]
+      ,[IpSecPermitIpProtocols]
+      ,[IpSecPermitTcpPorts]
+      ,[IpSecPermitUdpPorts]
+      ,[IpSubnet]
+      ,[IpUseZeroBroadcast]
+      ,[IpxAddress]
+      ,[IpxEnabled]
+      ,[IpxMediaType]
+      ,[IpxNetworkNumber]
+      ,[IpxVirtualNetNumber]
+      ,[KeepAliveInterval]
+      ,[KeepAliveTime]
+      ,[MacAddress]
+      ,[Mtu]
+      ,[NumForwardPackets]
+      ,[PmtuDiscoveryEnabled]
+      ,[PmtubhDetectEnabled]
+      ,[ServiceName]
+      ,[SettingId]
+      ,[TcpIpnetBiosOptions]
+      ,[TcpMaxConnectRetransmissions]
+      ,[TcpMaxDataRetransmissions]
+      ,[TcpNumConnections]
+      ,[TcpUseRfc1122UrgentPointer]
+      ,[TcpWindowSize]
+      ,[UpdateCollectorId]
+      ,[UpdateDatetime]
+      ,[WinsEnableLmhostsLookup]
+      ,[WinsHostLookupFile]
+      ,[WinsPrimaryServer]
+      ,[WinsScopeId]
+      ,[WinsSecondaryServer]
+      ,[WmiDnsHostName]
+  FROM [MAP_SampleDB].[Win_Inventory].[NetworkAdapterConfigurations]") YIELD row AS NetworkAdapterConfigurations
+WITH NetworkAdapterConfigurations 
+MERGE (d:NetworkAdapterConfiguration_Win_Inventory_MapToolkit {
+MapToolkitVersion: "0.94",
+MaptoolkitTable: "[MAP_SampleDB].[Win_Inventory].[NetworkAdapterConfigurations]",
+DeviceNumber_Uid: coalesce(NetworkAdapterConfigurations.DeviceNumber, "NULL") + "_" + coalesce(NetworkAdapterConfigurations.Uid, "NULL"),
+DeviceNumber: coalesce(NetworkAdapterConfigurations.DeviceNumber, "NULL"),
+Uid: coalesce(NetworkAdapterConfigurations.Uid, "NULL"),
+ArpAlwaysSourceRoute: coalesce(NetworkAdapterConfigurations.ArpAlwaysSourceRoute, "NULL"),
+ArpUseEtherSnap: coalesce(NetworkAdapterConfigurations.ArpUseEtherSnap, "NULL"),
+Caption: coalesce(NetworkAdapterConfigurations.Caption, "NULL"),
+CreateCollectorId: coalesce(NetworkAdapterConfigurations.CreateCollectorId, "NULL"),
+CreateDatetimeString: coalesce(NetworkAdapterConfigurations.CreateDatetimeString, "NULL"),
+DatabasePath: coalesce(NetworkAdapterConfigurations.DatabasePath, "NULL"),
+DeadgwDetectEnabled: coalesce(NetworkAdapterConfigurations.DeadgwDetectEnabled, "NULL"),
+DefaultIpGateway: coalesce(NetworkAdapterConfigurations.DefaultIpGateway, "NULL"),
+DefaultTos: coalesce(NetworkAdapterConfigurations.DefaultTos, "NULL"),
+DefaultTtl: coalesce(NetworkAdapterConfigurations.DefaultTtl, "NULL"),
+Description: coalesce(NetworkAdapterConfigurations.Description, "NULL"),
+DeviceId: coalesce(NetworkAdapterConfigurations.DeviceId, "NULL"),
+DhcpEnabled: coalesce(NetworkAdapterConfigurations.DhcpEnabled, "NULL"),
+DhcpLeaseExpires: coalesce(NetworkAdapterConfigurations.DhcpLeaseExpires, "NULL"),
+DhcpLeaseObtained: coalesce(NetworkAdapterConfigurations.DhcpLeaseObtained, "NULL"),
+DhcpServer: coalesce(NetworkAdapterConfigurations.DhcpServer, "NULL"),
+DnsDomain: coalesce(NetworkAdapterConfigurations.DnsDomain, "NULL"),
+DnsDomainSuffixSearchOrder: coalesce(NetworkAdapterConfigurations.DnsDomainSuffixSearchOrder, "NULL"),
+DnsEnabledForWinsResolution: coalesce(NetworkAdapterConfigurations.DnsEnabledForWinsResolution, "NULL"),
+DnsServerSearchOrder: coalesce(NetworkAdapterConfigurations.DnsServerSearchOrder, "NULL"),
+DomainDnsRegistrationEnabled: coalesce(NetworkAdapterConfigurations.DomainDnsRegistrationEnabled, "NULL"),
+ForwardBufferMemory: coalesce(NetworkAdapterConfigurations.ForwardBufferMemory, "NULL"),
+FullDnsRegistrationEnabled: coalesce(NetworkAdapterConfigurations.FullDnsRegistrationEnabled, "NULL"),
+GatewayCostMetric: coalesce(NetworkAdapterConfigurations.GatewayCostMetric, "NULL"),
+IgmpLevel: coalesce(NetworkAdapterConfigurations.IgmpLevel, "NULL"),
+IndexId: coalesce(NetworkAdapterConfigurations.IndexId, "NULL"),
+InterfaceIndex: coalesce(NetworkAdapterConfigurations.InterfaceIndex, "NULL"),
+IpAddress: coalesce(NetworkAdapterConfigurations.IpAddress, "NULL"),
+IpConnectionMetric: coalesce(NetworkAdapterConfigurations.IpConnectionMetric, "NULL"),
+IpEnabled: coalesce(NetworkAdapterConfigurations.IpEnabled, "NULL"),
+IpFilterSecurityEnabled: coalesce(NetworkAdapterConfigurations.IpFilterSecurityEnabled, "NULL"),
+IpSecPermitIpProtocols: coalesce(NetworkAdapterConfigurations.IpSecPermitIpProtocols, "NULL"),
+IpSecPermitTcpPorts: coalesce(NetworkAdapterConfigurations.IpSecPermitTcpPorts, "NULL"),
+IpSecPermitUdpPorts: coalesce(NetworkAdapterConfigurations.IpSecPermitUdpPorts, "NULL"),
+IpSubnet: coalesce(NetworkAdapterConfigurations.IpSubnet, "NULL"),
+IpUseZeroBroadcast: coalesce(NetworkAdapterConfigurations.IpUseZeroBroadcast, "NULL"),
+IpxAddress: coalesce(NetworkAdapterConfigurations.IpxAddress, "NULL"),
+IpxEnabled: coalesce(NetworkAdapterConfigurations.IpxEnabled, "NULL"),
+IpxMediaType: coalesce(NetworkAdapterConfigurations.IpxMediaType, "NULL"),
+IpxNetworkNumber: coalesce(NetworkAdapterConfigurations.IpxNetworkNumber, "NULL"),
+IpxVirtualNetNumber: coalesce(NetworkAdapterConfigurations.IpxVirtualNetNumber, "NULL"),
+KeepAliveInterval: coalesce(NetworkAdapterConfigurations.KeepAliveInterval, "NULL"),
+KeepAliveTime: coalesce(NetworkAdapterConfigurations.KeepAliveTime, "NULL"),
+MacAddress: coalesce(NetworkAdapterConfigurations.MacAddress, "NULL"),
+Mtu: coalesce(NetworkAdapterConfigurations.Mtu, "NULL"),
+NumForwardPackets: coalesce(NetworkAdapterConfigurations.NumForwardPackets, "NULL"),
+PmtuDiscoveryEnabled: coalesce(NetworkAdapterConfigurations.PmtuDiscoveryEnabled, "NULL"),
+PmtubhDetectEnabled: coalesce(NetworkAdapterConfigurations.PmtubhDetectEnabled, "NULL"),
+ServiceName: coalesce(NetworkAdapterConfigurations.ServiceName, "NULL"),
+SettingId: coalesce(NetworkAdapterConfigurations.SettingId, "NULL"),
+TcpIpnetBiosOptions: coalesce(NetworkAdapterConfigurations.TcpIpnetBiosOptions, "NULL"),
+TcpMaxConnectRetransmissions: coalesce(NetworkAdapterConfigurations.TcpMaxConnectRetransmissions, "NULL"),
+TcpMaxDataRetransmissions: coalesce(NetworkAdapterConfigurations.TcpMaxDataRetransmissions, "NULL"),
+TcpNumConnections: coalesce(NetworkAdapterConfigurations.TcpNumConnections, "NULL"),
+TcpUseRfc1122UrgentPointer: coalesce(NetworkAdapterConfigurations.TcpUseRfc1122UrgentPointer, "NULL"),
+TcpWindowSize: coalesce(NetworkAdapterConfigurations.TcpWindowSize, "NULL"),
+UpdateCollectorId: coalesce(NetworkAdapterConfigurations.UpdateCollectorId, "NULL"),
+UpdateDatetime: coalesce(NetworkAdapterConfigurations.UpdateDatetime, "NULL"),
+WinsEnableLmhostsLookup: coalesce(NetworkAdapterConfigurations.WinsEnableLmhostsLookup, "NULL"),
+WinsHostLookupFile: coalesce(NetworkAdapterConfigurations.WinsHostLookupFile, "NULL"),
+WinsPrimaryServer: coalesce(NetworkAdapterConfigurations.WinsPrimaryServer, "NULL"),
+WinsScopeId: coalesce(NetworkAdapterConfigurations.WinsScopeId, "NULL"),
+WinsSecondaryServer: coalesce(NetworkAdapterConfigurations.WinsSecondaryServer, "NULL"),
+WmiDnsHostName: coalesce(NetworkAdapterConfigurations.WmiDnsHostName, "NULL"),
+_Modified: timestamp()
+})
+ON CREATE SET d:_Created = timestamp()

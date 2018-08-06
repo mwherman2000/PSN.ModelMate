@@ -1,0 +1,5 @@
+﻿with "jdbc:jtds:sqlserver://PSN-W12R2-003:1433;databaseName=northwind;user=sa;password=P@ssword1;" as connstring
+CALL apoc.load.jdbc(connstring,"dbo.Orders") YIELD row AS Orders
+WITH Orders
+CREATE (o:Order {orderId: Orders.OrderID, orderDate: Orders.OrderDate})
+RETURN Orders LIMIT 2;

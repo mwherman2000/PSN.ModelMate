@@ -1,0 +1,4479 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Text;
+
+namespace PSN.ModelMate.MAPToolkit.Entities
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ComputerSystemProduct
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Caption { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string IdentifyingNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SKUNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid? UUiD { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Vendor { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Version { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DataBaseProperties
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CompatibilityLevel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreatedTimestamp { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? Dbid { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public string DbName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? LastBackupDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberFunction { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberSp { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberTables { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberViews { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Owner { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public string ServerName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Size { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Status { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DatabasesCounters
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public string DatabaseName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? DataFilesSizeKB { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public string Instance { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? LogFilesSizeKB { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? LogFilesUsedSizeKB { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? PercentLogUsed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DataBaseServerConfigurations
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public int ConfigurationId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? IsAdvanced { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? IsDynamic { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? MaxValue { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? MinValue { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public string ServerName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? Value { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? ValueInUse { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DataBaseServerProperties
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ClrVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Collation { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? CollationId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? ComparisonStyle { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ComputerNetbios { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Edition { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? EditionId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? EngineEdition { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? FsConfiguredlevel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? FsEffectivelevel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FsSharename { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string InstanceName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? IsClustered { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? IsFulltextInstalled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? IsIntegratedsecurity { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? IsSingleUser { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? LastUpdateTime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? Lcid { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LicenseType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string MachineName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumLicenses { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ProcessId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ProductLevel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ProductVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ResourceVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public string ServerName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SqlCharset { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SqlCharsetName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SqlSortorder { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Devices
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AccountExpires { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? ActivationRequired { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? AdCollector { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? AdDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AdDnsHostName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AdDomainName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AdFullyQualifiedDomainName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? AdminPasswordStatus { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string AdOsVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosBuildNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosCharacteristics { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosCodeset { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? BiosInstallDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosManufacturer { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? BiosReleaseDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosSerialNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BiosVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BootDevice { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? BootRomSupported { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BuildNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? BusType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ChassisBootUpState { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ChassisTypes { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ComputerSystemName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CountryCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreationDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CsdVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CurrentLanguage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CurrentTimeZone { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? DayLightInEffect { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? Debug { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? DeviceStatusScm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? DeviceStatusSnmp { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DeviceStatusWmi { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DistinguishedName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DnsHostName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DomainName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? DomainRole { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Drive { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? EnableDaylightSavingsTime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string EnclosureManufacturer { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string EnclosureSerialNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? EncryptionLevel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? FreePhysicalMemory { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? FreeSpace { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? FreeSpaceInPagingFiles { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? FreeVirtualMemory { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? FrontPanelResetStatus { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string HostNameForVm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? HotSwappable { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string IdentificationCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? InfraredSupported { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? InsertState { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? InstallableLanguages { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        //public byte[8] InventoryRowversion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int InventoryWatermark { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? KeyboardPasswordStatus { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LanguageEdition { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? LargeSystemCache { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LastBootupTime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string LastLoggedOnUser { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? LastLogonTimestamp { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? LastUserLogon { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? LocalDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Locale { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Location { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? LockPresent { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? MaximumSize { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? MaxNumberOfProcesses { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? MaxProcessMemorySize { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Model { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string MuiLanguages { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string NetServerEnumDomainName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string NetServerEnumOsVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string NetworkIpAddress { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? NetworkServerModeEnabled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberOfCores { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? NumberOfLicensedUsers { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberOfLogicalProcessors { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? NumberOfProcessors { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? NumberOfUsers { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid? ObjectGuid { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OperatingSystem { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OperatingSystemServicePack { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? OperatingSystemSku { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Organization { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsArchitecture { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsBuildType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsCaption { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsCodeset { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? OsEncryptionLevel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? OsInstallDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? OsLanguage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsManufacturer { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? OsProductSuite { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PartNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? PartOfDomain { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? PauseAfterReset { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? PcSystemType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PlusProductId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PlusVersionNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? PowerOnPasswordStatus { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? PowerState { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? PowerSupplyState { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? PrimaryBios { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PrimaryFlag { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PrimaryOwnerContact { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PrimaryOwnerName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ProductId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ProductType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? PwdLastSet { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public short? QuantumLength { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public short? QuantumType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string RegisteredUser { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? RegistryDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? RegistryScanResult { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? RemainingEvaluationPeriod { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? RemainingGracePeriod { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? Removable { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? Replaceable { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ResetCapability { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ResetCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ResetLimit { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Roles { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? ScmDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SecurityBreach { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SecurityStatus { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SerialNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ServerName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ServicePackMajorVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? ServicePackMinorVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SiteName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SmbiosAssetTag { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SmbiosBiosVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SmbiosMajorVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SmbiosMinorVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? SmbiosPresent { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SnmpManufacturerOid { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SnmpScanResult { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SshScanResult { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? SuiteMask { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SupportContactDescription { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SystemDevice { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SystemDirectory { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SystemDrive { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? SystemStartupDelay { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SystemType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? TotalPhysicalMemory { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? TotalSwapSpaceSize { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? TotalVirtualMemorySize { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public long? TotalVisibleMemorySize { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string VmFriendlyName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? WakeupType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WindowsDirectory { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? WinNetworkCollector { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? WinNetworkDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WmiChassisTypes { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? WmiDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? WmiDepScanResult { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? WmiDepScanResultDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WmiDnsHostName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WmiDomainName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WmiOsVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? WmiProductType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? WmiScanResult { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? WmiScanResultDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Workgroup { get; set; }
+
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<ComputerSystemProduct> ComputerSystemProduct { get; set; }
+        public virtual DataBaseProperties DataBaseProperties { get; set; }
+        public virtual DatabasesCounters DatabasesCounters { get; set; }
+        public virtual DataBaseServerConfigurations DataBaseServerConfigurations { get; set; }
+        public virtual DataBaseServerProperties DataBaseServerProperties { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<DnsConfiguration> DnsConfiguration { get; set; }
+        public virtual HardwareInventoryCore HardwareInventoryCore { get; set; }
+        public virtual HardwareInventoryEx HardwareInventoryEx { get; set; }
+        public virtual HostGuestDetails HostGuestDetails { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISApplicationPools> IISApplicationPools { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISEnabledService> IISEnabledService { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISVirtualDirApplications> IISVirtualDirApplications { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISVirtualDirApplicationsSubdirs> IISVirtualDirApplicationsSubdirs { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISWebInfo> IISWebInfo { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISWebServerSetting> IISWebServerSetting { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<IISWebStatus> IISWebStatus { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<Inventory> Inventory { get; set; }
+        public virtual MetricAggregation MetricAggregation { get; set; }
+        public virtual MetricPerTimeInterval MetricPerTimeInterval { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<NetworkAdapterConfigurations> NetworkAdapterConfigurations { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<NetworkAdapters> NetworkAdapters { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<OsInfo> OsInfo { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<PhysicalMemory> PhysicalMemory { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<Processors> Processors { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual Products Products { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<RawMetrics> RawMetrics { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<ServerFeatures> ServerFeatures { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<Services> Services { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<SqlInstances> SqlInstances { get; set; }
+        [ForeignKey("DeviceNumber")]
+        public virtual IList<Statistics> Statistics { get; set; }
+        public virtual WindowsInstalledSoftwareFull WindowsInstalledSoftwareFull { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DnsConfiguration
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? CreateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? CreateDatetime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Domain { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Hostname { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Nameserver { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Search { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? UpdateCollectorId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateDatetime { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class HardwareInventoryCore
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ComputerName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? CpuArchitectureBits { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CurrentOperatingSystem { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte? OsArchitectureBits { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsFamilyName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string OsServicePack { get; set; }
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class HardwareInventoryEx
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ActiveNetworkAdapter { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BIOs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BIOsManufacturer { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? BIOsReleaseDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BIOsSerialNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ComputerModel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Cpu { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DaysSinceDomainAccountUpdate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Key]
+        public Guid DeviceNumber { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DiskDrive { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DiskDriveSize { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DNSServer { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        //public string Domain/Workgroup { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IPAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IPGateway { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string MACAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string MachineType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string NumberOfCores { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string NumberOfLogicalProcessors { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string NumberOfProcessors { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string OpticalDrive { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string RegisteredUserName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SoundCard { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SSHStatus { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SubnetMask { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SystemMemory { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string VideoCard { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string VideoCardMemory { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WINSServer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WMIStatus { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class HostGuestDetails
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DnsHostName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid? GuestDeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestDnsHostName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestEnabledDefault { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestEnabledState { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestIntrinsicExchangeItems { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestOperationalStatus { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestOsBuildNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestOsName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestOsProductSuite { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestOsServicePack { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestOsVersion { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestProductType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestServicePackMajor { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestServicePackMinor { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GuestSystemName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? GuestUpTime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISApplicationPools
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ApplicationPool { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ManagedRuntimeVersion { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISEnabledService
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IisSystemName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string State { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISVirtualDirApplications
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string AppPoolId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string AppRoot { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? HasAsp { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? HasAspx { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? HasHtml { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? HasJava { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? HasPhp { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? HasRuby { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Path { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISVirtualDirApplicationsSubdirs
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Subdir { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISWebInfo
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string MajorIisVerionNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string MinorIisVerionNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISWebServerSetting
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ServerComment { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class IISWebStatus
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string State { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Systemname { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class Inventory
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Checksum { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Clustered { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DnsHostName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Fileversion { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Instanceid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string InstanceName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? Iswow64 { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Language { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Servicename { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Sku { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Skuname { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Splevel { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Sqlservicetype { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Version { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Vsname { get; set; }
+
+}
+
+///// <summary>
+///// 
+///// </summary>
+//public class Inventory
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Instanceid { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string OracleBundleName { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string OracleHome { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Regkey { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Version { get; set; }
+
+//}
+
+/// <summary>
+/// 
+/// </summary>
+public class MetricAggregation
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? DataCount { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MetricAvg { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MetricMax { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MetricMin { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MetricPercentile { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public byte MetricType { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class MetricPerTimeInterval
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? Metric { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public byte MetricType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public short Runlength { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public int TimeInterval { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class NetworkAdapterConfigurations
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? ArpAlwaysSourceRoute { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? ArpUseEtherSnap { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Caption { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DatabasePath { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? DeadgwDetectEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DefaultIpGateway { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DefaultTos { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DefaultTtl { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Description { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DeviceId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? DhcpEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DhcpLeaseExpires { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DhcpLeaseObtained { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DhcpServer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DnsDomain { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DnsDomainSuffixSearchOrder { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? DnsEnabledForWinsResolution { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DnsServerSearchOrder { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? DomainDnsRegistrationEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? ForwardBufferMemory { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? FullDnsRegistrationEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string GatewayCostMetric { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IgmpLevel { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? IndexId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? InterfaceIndex { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? IpConnectionMetric { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? IpEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? IpFilterSecurityEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpSecPermitIpProtocols { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpSecPermitTcpPorts { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpSecPermitUdpPorts { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpSubnet { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpUseZeroBroadcast { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpxAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? IpxEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? IpxMediaType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpxNetworkNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IpxVirtualNetNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? KeepAliveInterval { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? KeepAliveTime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string MacAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Mtu { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? NumForwardPackets { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? PmtubhDetectEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? PmtuDiscoveryEnabled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ServiceName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SettingId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? TcpIpnetBiosOptions { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? TcpMaxConnectRetransmissions { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? TcpMaxDataRetransmissions { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? TcpNumConnections { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? TcpUseRfc1122UrgentPointer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? TcpWindowSize { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? WinsEnableLmhostsLookup { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WinsHostLookupFile { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WinsPrimaryServer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WinsScopeId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WinsSecondaryServer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string WmiDnsHostName { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class NetworkAdapters
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string AdapterType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? AdapterTypeId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? AutoSense { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Availability { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Caption { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? ConfigManagerUserConfig { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Description { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DeviceId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? IndexId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InstallDate { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? Installed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? InterfaceIndex { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string MacAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Manufacturer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? MaxNumberControlled { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? MaxSpeed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string NetConnectionId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? NetConnectionStatus { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string NetworkAddresses { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string PermanentAddress { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string PnpDeviceId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ProductName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ServiceName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Speed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? StatusInfo { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SystemName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? TimeOfLastReset { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? TimeSinceBootOfLastChange { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+///// <summary>
+///// 
+///// </summary>
+//public class NetworkAdapters
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public bool? Active { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string BroadcastAddr { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Description { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string InterfaceName { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Ipv4Addr { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Ipv6Addr { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string MacAddress { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? Mtu { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string NetMask { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public long? RxBytes { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public long? RxErrors { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public long? RxPackets { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public long? TxBytes { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public long? TxErrors { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public long? TxPackets { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Type { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//}
+
+/// <summary>
+/// 
+/// </summary>
+public class OsInfo
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string HardwareType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string OsImplementation { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string OsReleaseLevel { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string OsReleaseVersionLevel { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class PhysicalMemory
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Capacity { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? DataWidth { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DeviceLocator { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Speed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Tag { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? TotalWidth { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? TypeDetail { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class Processors
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? AddressWidth { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Architecture { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Availability { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Caption { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? ConfigManagerErrorCode { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? ConfigManagerUserConfig { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CpuStatus { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? CurrentClockSpeed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CurrentVoltage { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? DataWidth { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Description { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DeviceId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? ErrorCleared { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ErrorDescription { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? ExtClock { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Family { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InstallDate { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? L2CacheSize { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? L2CacheSpeed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? L3CacheSize { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? L3CacheSpeed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? LastErrorCode { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Level { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? LoadPercentage { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Manufacturer { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? MaxClockSpeed { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? NumberOfCores { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? NumberOfLogicalProcessors { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string OtherFamilyDescription { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string PnpDeviceId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string PowerManagementCapabilities { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public bool? PowerManagementSupported { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ProcessorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? ProcessorType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Revision { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Role { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SocketDesignation { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? StatusInfo { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Stepping { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string UniqueId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpgradeMethod { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Version { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? VoltageCaps { get; set; }
+
+}
+
+///// <summary>
+///// 
+///// </summary>
+//public class Processors
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string ComputerId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string ComputerModel { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string ComputerSerialNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string CorePerSockets { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string CpuInfo { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string EnabledCpu { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string EnabledSockets { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string HyperThreading { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string License { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string LogicalProcessor { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Memory { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string ProcessorModel { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Version { get; set; }
+
+//}
+
+///// <summary>
+///// 
+///// </summary>
+//public class Processors
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public byte? AddressWidth { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CacheSizeKb { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public short? CoreId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public short? CpuFamily { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CpuMhz { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public short? Model { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string ModelName { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public short? PhysicalId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public short Processor { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public short? Stepping { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string VendorId { get; set; }
+
+//}
+
+///// <summary>
+///// 
+///// </summary>
+//public class Products
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    [Key]
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    [Key]
+//    public string Product { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    [Key]
+//    public string SID { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Status { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Version { get; set; }
+
+//}
+
+/// <summary>
+/// 
+/// </summary>
+public class Products
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Caption { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Description { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IdentifyingNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InstallDate { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InstallDate2 { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string InstallLocation { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? InstallState { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string PackageCache { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SkuNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Vendor { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Version { get; set; }
+
+}
+
+///// <summary>
+///// 
+///// </summary>
+//public class Products
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Description { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string InstallPath { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Name { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Vendor { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Version { get; set; }
+
+//}
+
+///// <summary>
+///// 
+///// </summary>
+//public class Products
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public byte? AppStack { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? CreateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? CreateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Description { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public Guid DeviceNumber { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Name { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public byte? Status { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public int? UpdateCollectorId { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public DateTime? UpdateDatetime { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Vendor { get; set; }
+
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    public string Version { get; set; }
+
+//}
+
+/// <summary>
+/// 
+/// </summary>
+public class RawMetrics
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime CollectionDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? CpuPercentage { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? CpuUserPercentage { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskBytesPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskQueueLength { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskReadQueueLength { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskReadTransfersPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskTotalTransfersPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskUsedBytes { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskWriteQueueLength { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? DiskWriteTransfersPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MemoryAvailableBytes { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MemoryCacheBytes { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MemoryPoolNonpagedBytes { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? MemoryUsedBytes { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? NetworkioRecvBytesPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? NetworkioSentBytesPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? NetworkioTotalBytesPerSec { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public double? PercentageFreeSpace { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? SourceTypeId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Status { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class ServerFeatures
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Id { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? ParentId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class Services
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Caption { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? CreateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? CreateDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Description { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? DesktopInteract { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string DisplayName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ExecutablePath { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InstallDate { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string PathName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? ProcessId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ServiceType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? Started { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string StartMode { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string StartName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string State { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? TagId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid Uid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? UpdateCollectorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? UpdateDatetime { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class SqlInstances
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ClrVersion { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Clustered { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Collation { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Instanceid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string InstanceName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? IsIntegratedsecurity { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public byte? IsSingleUser { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public long? Language { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Lcid { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string LicenseType { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? NumLicenses { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ServerName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Servicename { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Skuname { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Splevel { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? SqlConnected { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? Sqlservicetype { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string VersionCoalesce { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Vsname { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class Statistics
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? FailureCode { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InsertDatetime { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? SuccessfullAttempts { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? TotalAttempts { get; set; }
+
+}
+
+/// <summary>
+/// 
+/// </summary>
+public class WindowsInstalledSoftwareFull
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public Guid DeviceNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string IdentifyingNumber { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public DateTime? InstallDate { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string InstallLocation { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public int? InstallState { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public string Name { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SwidSoftwareLicensorId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SwidSoftwareLicensorName { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public string SwidSoftwareUniqueId { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public int SystemComponent { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public string Vendor { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [Key]
+    public string Version { get; set; }
+
+}
+
+    public partial class MAP_SampleDBContext : DbContext
+    {
+        public MAP_SampleDBContext()
+            : base("name=MAP_SampleDBContext")
+        {
+            Database.SetInitializer<MAP_SampleDBContext>(new CreateDatabaseIfNotExists<MAP_SampleDBContext>());
+            //this.Database.Log = Console.Write;
+
+            //Database.SetInitializer<SchoolDBContext>(new DropCreateDatabaseIfModelChanges<SchoolDBContext>());
+            //Database.SetInitializer<SchoolDBContext>(new DropCreateDatabaseAlways<SchoolDBContext>());
+            //Database.SetInitializer<SchoolDBContext>(new SchoolDBInitializer());
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+
+        public DbSet<ComputerSystemProduct> ComputerSystemProduct { get; set; }
+    public DbSet<DataBaseProperties> DataBaseProperties { get; set; }
+    public DbSet<DatabasesCounters> DatabasesCounters { get; set; }
+    public DbSet<DataBaseServerConfigurations> DataBaseServerConfigurations { get; set; }
+    public DbSet<DataBaseServerProperties> DataBaseServerProperties { get; set; }
+    public DbSet<Devices> Devices { get; set; }
+    public DbSet<DnsConfiguration> DnsConfiguration { get; set; }
+    public DbSet<HardwareInventoryCore> HardwareInventoryCore { get; set; }
+    public DbSet<HardwareInventoryEx> HardwareInventoryEx { get; set; }
+    public DbSet<HostGuestDetails> HostGuestDetails { get; set; }
+    public DbSet<IISApplicationPools> IISApplicationPools { get; set; }
+    public DbSet<IISEnabledService> IISEnabledService { get; set; }
+    public DbSet<IISVirtualDirApplications> IISVirtualDirApplications { get; set; }
+    public DbSet<IISVirtualDirApplicationsSubdirs> IISVirtualDirApplicationsSubdirs { get; set; }
+    public DbSet<IISWebInfo> IISWebInfo { get; set; }
+    public DbSet<IISWebServerSetting> IISWebServerSetting { get; set; }
+    public DbSet<IISWebStatus> IISWebStatus { get; set; }
+    public DbSet<Inventory> Inventory { get; set; }
+    //public DbSet<Inventory> Inventory { get; set; }
+    public DbSet<MetricAggregation> MetricAggregation { get; set; }
+    public DbSet<MetricPerTimeInterval> MetricPerTimeInterval { get; set; }
+    public DbSet<NetworkAdapterConfigurations> NetworkAdapterConfigurations { get; set; }
+    public DbSet<NetworkAdapters> NetworkAdapters { get; set; }
+    //public DbSet<NetworkAdapters> NetworkAdapters { get; set; }
+    public DbSet<OsInfo> OsInfo { get; set; }
+    public DbSet<PhysicalMemory> PhysicalMemory { get; set; }
+    public DbSet<Processors> Processors { get; set; }
+    //public DbSet<Processors> Processors { get; set; }
+    //public DbSet<Processors> Processors { get; set; }
+    public DbSet<Products> Products { get; set; }
+    //public DbSet<Products> Products { get; set; }
+    //public DbSet<Products> Products { get; set; }
+    //public DbSet<Products> Products { get; set; }
+    public DbSet<RawMetrics> RawMetrics { get; set; }
+    public DbSet<ServerFeatures> ServerFeatures { get; set; }
+    public DbSet<Services> Services { get; set; }
+    public DbSet<SqlInstances> SqlInstances { get; set; }
+    public DbSet<Statistics> Statistics { get; set; }
+    public DbSet<WindowsInstalledSoftwareFull> WindowsInstalledSoftwareFull { get; set; }
+}
+ 
+}
+ 

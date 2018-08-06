@@ -1,0 +1,2 @@
+SELECT folders.tenant_Id, folders.folders_Id, folder.folder_Id, folder.identifier, name.lang, name.name_text
+FROM (folder INNER JOIN folders ON folder.folders_Id = folders.folders_Id) INNER JOIN name ON folder.folder_Id = name.folder_Id;

@@ -1,0 +1,89 @@
+﻿
+//DROP CONSTRAINT ON (d:NetworkAdapter_Win_Inventory_MapToolkit) ASSERT d.DeviceNumber_Uid IS UNIQUE;
+
+CREATE CONSTRAINT ON (d:NetworkAdapter_Win_Inventory_MapToolkit) ASSERT d.DeviceNumber_Uid IS UNIQUE;
+
+CREATE INDEX on :NetworkAdapter_Win_Inventory_MapToolkit(DeviceName)
+CREATE INDEX on :NetworkAdapter_Win_Inventory_MapToolkit(Uid)
+
+with "jdbc:sqlserver://PSN-W12R2-003:1433;databaseName=MAP_SampleDB;user=sa;password=P@ssword1;" as connstring
+CALL apoc.load.jdbc(connstring, "SELECT [DeviceNumber]
+      ,[Uid]
+      ,[AdapterType]
+      ,[AdapterTypeId]
+      ,[AutoSense]
+      ,[Availability]
+      ,[Caption]
+      ,[ConfigManagerUserConfig]
+      ,[CreateCollectorId]
+      ,CONVERT(VARCHAR, [CreateDatetime]) AS CreateDatetimeString
+      ,[Description]
+      ,[DeviceId]
+      ,[IndexId]
+      ,[InstallDate]
+      ,[Installed]
+      ,[InterfaceIndex]
+      ,[MacAddress]
+      ,[Manufacturer]
+      ,[MaxNumberControlled]
+      ,[MaxSpeed]
+      ,[Name]
+      ,[NetConnectionId]
+      ,[NetConnectionStatus]
+      ,[NetworkAddresses]
+      ,[PermanentAddress]
+      ,[PnpDeviceId]
+      ,[ProductName]
+      ,[ServiceName]
+      ,[Speed]
+      ,[Status]
+      ,[StatusInfo]
+      ,[TimeSinceBootOfLastChange]
+      ,[SystemName]
+      ,CONVERT(VARCHAR, [TimeOfLastReset]) AS TimeOfLastResetString
+      ,[UpdateCollectorId]
+      ,[UpdateDatetime]
+  FROM [MAP_SampleDB].[Win_Inventory].[NetworkAdapters]") YIELD row AS NetworkAdapters
+WITH NetworkAdapters 
+MERGE (d: NetworkAdapter_Win_Inventory_MapToolkit {
+MapToolkitVersion: "0.94",
+MaptoolkitTable: "[MAP_SampleDB].[Win_Inventory].[NetworkAdapters]",
+DeviceNumber_Uid: coalesce(NetworkAdapters.DeviceNumber, "NULL") + "_" + coalesce(NetworkAdapters.Uid, "NULL"),
+DeviceNumber: coalesce(NetworkAdapters.DeviceNumber, "NULL"),
+Uid: coalesce(NetworkAdapters.Uid, "NULL"),
+AdapterType: coalesce(NetworkAdapters.AdapterType, "NULL"),
+AdapterTypeId: coalesce(NetworkAdapters.AdapterTypeId, "NULL"),
+AutoSense: coalesce(NetworkAdapters.AutoSense, "NULL"),
+Availability: coalesce(NetworkAdapters.Availability, "NULL"),
+Caption: coalesce(NetworkAdapters.Caption, "NULL"),
+ConfigManagerUserConfig: coalesce(NetworkAdapters.ConfigManagerUserConfig, "NULL"),
+CreateCollectorId: coalesce(NetworkAdapters.CreateCollectorId, "NULL"),
+CreateDatetimeString: coalesce(NetworkAdapters.CreateDatetimeString, "NULL"),
+Description: coalesce(NetworkAdapters.Description, "NULL"),
+DeviceId: coalesce(NetworkAdapters.DeviceId, "NULL"),
+IndexId: coalesce(NetworkAdapters.IndexId, "NULL"),
+InstallDate: coalesce(NetworkAdapters.InstallDate, "NULL"),
+Installed: coalesce(NetworkAdapters.Installed, "NULL"),
+InterfaceIndex: coalesce(NetworkAdapters.InterfaceIndex, "NULL"),
+MacAddress: coalesce(NetworkAdapters.MacAddress, "NULL"),
+Manufacturer: coalesce(NetworkAdapters.Manufacturer, "NULL"),
+MaxNumberControlled: coalesce(NetworkAdapters.MaxNumberControlled, "NULL"),
+MaxSpeed: coalesce(NetworkAdapters.MaxSpeed, "NULL"),
+Name: coalesce(NetworkAdapters.Name, "NULL"),
+NetConnectionId: coalesce(NetworkAdapters.NetConnectionId, "NULL"),
+NetConnectionStatus: coalesce(NetworkAdapters.NetConnectionStatus, "NULL"),
+NetworkAddresses: coalesce(NetworkAdapters.NetworkAddresses, "NULL"),
+PermanentAddress: coalesce(NetworkAdapters.PermanentAddress, "NULL"),
+PnpDeviceId: coalesce(NetworkAdapters.PnpDeviceId, "NULL"),
+ProductName: coalesce(NetworkAdapters.ProductName, "NULL"),
+ServiceName: coalesce(NetworkAdapters.ServiceName, "NULL"),
+Speed: coalesce(NetworkAdapters.Speed, "NULL"),
+Status: coalesce(NetworkAdapters.Status, "NULL"),
+StatusInfo: coalesce(NetworkAdapters.StatusInfo, "NULL"),
+TimeSinceBootOfLastChange: coalesce(NetworkAdapters.TimeSinceBootOfLastChange, "NULL"),
+SystemName: coalesce(NetworkAdapters.SystemName, "NULL"),
+TimeOfLastResetString: coalesce(NetworkAdapters.TimeOfLastResetString, "NULL"),
+UpdateCollectorId: coalesce(NetworkAdapters.UpdateCollectorId, "NULL"),
+UpdateDatetime: coalesce(NetworkAdapters.UpdateDatetime, "NULL"),
+_Created: timestamp()
+})

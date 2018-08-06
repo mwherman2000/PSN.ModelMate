@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70CDAB8C-8987-4555-B528-2E68805C24E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModelMateDatabase</RootNamespace>
+    <AssemblyName>ModelMateDatabase</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\archimate_v2p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit0.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit2.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit4.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit6.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit9.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit8.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\doit7.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\ElementTextTest1.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\ElementTextTest2.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\ElementTextTest2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\mwhtest1.bat" />
+    <None Include="DatabaseBuilder\XSD2DB-0.2-bin\XSD2DB-0.2-bin.zip" />
+    <None Include="Design\ModelMateDesign 1-0-1.archimate" />
+    <None Include="Design\ModelMateDesign 1-0-2.archimate" />
+    <None Include="Design\ModelMateDesign 1-0-3.archimate" />
+    <None Include="Design\PSN ModelMate for API Analysis-1-0-3.archimate" />
+    <None Include="Documentation\JulieLerman-ProgrammingEntityFramework.pdf" />
+    <None Include="Documentation\PSN TN0028 - SPS2003 XML Import-Export Operation Attribute7.doc" />
+    <None Include="Documentation\PSN TN0028 - SPS2003 XML Import-Export Operation Attribute8.doc" />
+    <None Include="ModelMateEFModel7.dsn" />
+    <None Include="Samples\ArchiMetal\ArchiMetal.archimate" />
+    <None Include="Samples\ArchiMetal\README.md" />
+    <None Include="Samples\Archisurance\Archisurance.archimate" />
+    <None Include="Samples\Archisurance\README.md" />
+    <None Include="Samples\Open Day\Open Day.archimate" />
+    <None Include="Samples\Open Day\README.md" />
+    <None Include="Schema\archimate_v2p1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\archimate_v2p1_extended.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\ElementTextTest1.xsc">
+      <DependentUpon>ElementTextTest1.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\ElementTextTest1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\ElementTextTest1.xss">
+      <DependentUpon>ElementTextTest1.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\ElementTextTest2.xsc">
+      <DependentUpon>ElementTextTest2.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\ElementTextTest2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\ElementTextTest2.xss">
+      <DependentUpon>ElementTextTest2.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood3.xsc">
+      <DependentUpon>Reference ModelGood3.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\Reference ModelGood3.xss">
+      <DependentUpon>Reference ModelGood3.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood6.xsc">
+      <DependentUpon>Reference ModelGood6.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\Reference ModelGood6.xss">
+      <DependentUpon>Reference ModelGood6.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood7.xsc">
+      <DependentUpon>Reference ModelGood7.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\Reference ModelGood7.xss">
+      <DependentUpon>Reference ModelGood7.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\ModelMateModel9.xsc">
+      <DependentUpon>ModelMateModel9.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\ModelMateModel9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\ModelMateModel9.xss">
+      <DependentUpon>ModelMateModel9.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood9.xsc">
+      <DependentUpon>Reference ModelGood9.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood9.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="Schema\Reference ModelGood9.xss">
+      <DependentUpon>Reference ModelGood9.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood8.xsc">
+      <DependentUpon>Reference ModelGood8.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\Reference ModelGood8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\Reference ModelGood8.xss">
+      <DependentUpon>Reference ModelGood8.xsd</DependentUpon>
+    </None>
+    <None Include="Schema\xmlArchiSurance_app1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schema\xmlArchiSurance_app2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseBuilder\XSD2DB-0.2-bin\Interop.ADOX.dll" />
+    <Content Include="DatabaseBuilder\XSD2DB-0.2-bin\temp.sql" />
+    <Content Include="DatabaseBuilder\XSD2DB-0.2-bin\Untitled.png" />
+    <Content Include="DatabaseBuilder\XSD2DB-0.2-bin\Xsd2Db.CommandLineParser.dll" />
+    <Content Include="DatabaseBuilder\XSD2DB-0.2-bin\Xsd2Db.Data.dll" />
+    <Content Include="DatabaseBuilder\XSD2DB-0.2-bin\xsd2db.exe" />
+    <Content Include="Design\ModelMateDesign 1-0-2.png" />
+    <Content Include="Design\ModelMateDesign 1-0-3-Metamodel.png" />
+    <Content Include="Design\ModelMateSample1-NoViews.xml" />
+    <Content Include="Design\ModelMateSample1.png" />
+    <Content Include="Design\ModelMateSample1.xml" />
+    <Content Include="Documentation\RevisionNumberUpdateTrigger.sql" />
+    <Content Include="Samples\ArchiMetal\ArchiMetal.xml" />
+    <Content Include="Samples\Archisurance\Archisurance-psn.xml" />
+    <Content Include="Samples\Archisurance\Archisurance.xml" />
+    <Content Include="Samples\Snippets\Bendpoints.xml" />
+    <Content Include="Samples\Snippets\Elements.xml" />
+    <Content Include="Samples\Open Day\Open Day.xml" />
+    <Content Include="Samples\Snippets\properties.xml" />
+    <Content Include="Samples\Snippets\Reference Model.xml" />
+    <Content Include="Samples\Snippets\Relationships.xml" />
+    <Content Include="Samples\Snippets\Styles.xml" />
+    <Content Include="Samples\Snippets\Views.xml" />
+    <Content Include="Schema\Archisurance.xml" />
+    <Content Include="Schema\Reference Model.xml" />
+    <Content Include="Documentation\union query.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

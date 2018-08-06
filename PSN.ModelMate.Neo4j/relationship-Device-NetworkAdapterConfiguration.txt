@@ -1,0 +1,189 @@
+﻿match(d:Devices_Core_Inventory_MAP_SampleDB) return count(d)
+match(nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) return count(nac)
+match(ipg:IpGateways_Calculated_MAP_SampleDB) return count(ipg)
+
+match(na:NetworkAdapters_Win_Inventory_MAP_SampleDB) return count(na)
+
+// OLD
+//match (d:Devices_Core_Inventory_MAP_SampleDB), (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB)
+//where d.DeviceNumber = nac.DeviceNumber
+//merge p = (d)-[r:Devices_NetworkAdapterConfiguration]->(nac)
+//return p;
+
+MATCH path = (source)-[r:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB__IpGateways_Calculated_MAP_SampleDB]->(target) DELETE r RETURN count(*);
+
+MATCH (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB), (ipg:IpGateways_Calculated_MAP_SampleDB)
+WHERE nac.DefaultIpGateway = ipg.Ipv4Address
+MERGE p = (nac)-[r:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB__IpGateways_Calculated_MAP_SampleDB]->(ipg)
+RETURN count(*);
+
+//match (nac:NetworkAdapterConfiguration_Win_Inventory_MAP_SampleDB), (ipg:IpGateway_Calculated_MAP_SampleDB)
+//where nac.DefaultIpGateway = ipg.Ipv4Address
+//return nac, ipg;
+
+MATCH p = (d:Devices_Core_Inventory_MAP_SampleDB) -[]-> (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) -[]->   (ipg:IpGateways_Calculated_MAP_SampleDB)
+WHERE ipg.Ipv4Address <> "NULL"
+RETURN p;
+
+MATCH (ipg:IpGateways_Calculated_MAP_SampleDB) <-[*1..2]- (source)
+WHERE ipg.Ipv4Address <> "NULL"
+RETURN ipg, source;
+
+MATCH (ipg:IpGateways_Calculated_MAP_SampleDB) <-[*1..2]- (source)
+WHERE ipg.Ipv4Address = "172.16.17.254"
+RETURN ipg, source;
+
+MATCH (ipg:IpGateways_Calculated_MAP_SampleDB) <-[*1..3]-> (source)
+WHERE ipg.Ipv4Address = "172.16.17.254" 
+AND (source:Processors_Win_Inventory_MAP_SampleDB 
+OR source:PhysicalMemory_Win_Inventory_MAP_SampleDB 
+OR source:Devices_Core_Inventory_MAP_SampleDB 
+OR source:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB 
+OR source:SqlInstances_SqlServer_Assessment_MAP_SampleDB
+OR source:Products_Win_Inventory_MAP_SampleDB)
+RETURN ipg, source;
+
+MATCH (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-[*1..3]-> (source)
+WHERE (source:Devices_Core_Inventory_MAP_SampleDB 
+OR source:SqlInstances_SqlServer_Assessment_MAP_SampleDB)
+RETURN nac, source;
+
+MATCH (ipg:IpGateways_Calculated_MAP_SampleDB) <-[*1..3]-> (source)
+WHERE ipg.Ipv4Address <> "NULL"
+RETURN ipg, source;
+
+MATCH (ipg:IpGateways_Calculated_MAP_SampleDB) <-[*1..3]-> (source)
+WHERE ipg.Ipv4Address = "172.16.17.254" 
+AND (source:Processors_Win_Inventory_MAP_SampleDB 
+OR source:PhysicalMemory_Win_Inventory_MAP_SampleDB 
+OR source:Devices_Core_Inventory_MAP_SampleDB 
+OR source:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB 
+OR source:SqlInstances_SqlServer_Assessment_MAP_SampleDB
+OR source:Products_Win_Inventory_MAP_SampleDB)
+RETURN ipg, source;
+
+MATCH (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-[*1..3]-> (source)
+WHERE (source:Processors_Win_Inventory_MAP_SampleDB 
+OR source:PhysicalMemory_Win_Inventory_MAP_SampleDB 
+OR source:Devices_Core_Inventory_MAP_SampleDB 
+OR source:SqlInstances_SqlServer_Assessment_MAP_SampleDB
+OR source:Products_Win_Inventory_MAP_SampleDB)
+RETURN nac, source;
+
+MATCH (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB)
+WHERE nac.IpAddress <> NULL
+RETURN nac;
+
+
+MATCH p = (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE nac.IpAddress =~ "^172\\.31\\.53.*"
+AND (source:Devices_Core_Inventory_MAP_SampleDB 
+OR source:SqlInstances_SqlServer_Assessment_MAP_SampleDB)
+RETURN p;
+
+MATCH (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-[*1..3]-> (source)
+WHERE (source:Devices_Core_Inventory_MAP_SampleDB) AND id(source) = 3246721
+RETURN nac, source;
+
+MATCH p = (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE nac.IpAddress =~ "^172\\.31\\.53\\.33.*"
+AND (source:Devices_Core_Inventory_MAP_SampleDB 
+OR source:SqlInstances_SqlServer_Assessment_MAP_SampleDB)
+RETURN p;
+
+MATCH p = (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-- (d:Devices_Core_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE nac.IpAddress =~ "^172\\.31\\.53\\.33.*"
+AND (source:SqlInstances_SqlServer_Assessment_MAP_SampleDB)
+RETURN nac, d, source;
+
+MATCH p = (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-- (d:Devices_Core_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE nac.IpAddress =~ "^172\\.31\\.53\\..*"
+AND (source:SqlInstances_SqlServer_Assessment_MAP_SampleDB)
+RETURN nac, d, source;
+
+MATCH p = (ips:IpSubnets_Calculated_MAP_SampleDB) <-- (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-- (d:Devices_Core_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE ips.Ipv4SubnetAddress = "172.31.53"
+AND (source:SqlInstances_SqlServer_Assessment_MAP_SampleDB)
+RETURN ips, nac, d, source;
+
+MATCH p = (ips:IpSubnets_Calculated_MAP_SampleDB) <-- (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-- (d:Devices_Core_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE (source:SqlInstances_SqlServer_Assessment_MAP_SampleDB 
+OR source:IISVirtualDirApplications_AzureMigration_Inventory_MAP_SampleDB)
+RETURN p;
+
+MATCH p = (ips:IpSubnets_Calculated_MAP_SampleDB) <-- (nac:NetworkAdapterConfigurations_Win_Inventory_MAP_SampleDB) <-- (d:Devices_Core_Inventory_MAP_SampleDB) <-[*1..4]-> (source)
+WHERE (source:SqlInstances_SqlServer_Assessment_MAP_SampleDB 
+OR source:IISVirtualDirApplications_AzureMigration_Inventory_MAP_SampleDB)
+RETURN ips, nac, d, source;
+
+// only HPUX product
+MATCH (d:Devices_Core_Inventory_MAP_SampleDB)-[*0..4]-> (target)
+WHERE (id(d) = 3247261)
+RETURN  d, target;
+
+MATCH (d:Devices_Core_Inventory_MAP_SampleDB)RETURN DISTINCT d.OsManufacturer, d.OperatingSystem, d.OperatingSystemServicePack, d.WmiOsVersion, d.AdDnsHostName, d.HostNameForVm, count(*) ORDER BY d.OperatingSystem, d.OperatingSystemServicePack DESC;
+
+MATCH  (d:WindowsInstalledSoftwareFull_Win_Assessment_MAP_SampleDB) RETURN DISTINCT d.Name, count(*) ORDER BY d.Name DESC;
+
+MATCH  (d:ComputerSystemProduct_Win_Inventory_MAP_SampleDB) RETURN DISTINCT d.Name, count(*) ORDER BY count(*) DESC;
+
+MATCH  (d:Products_Win_Inventory_MAP_SampleDB) WHERE d.Name =~ ".*SharePoint.*" RETURN DISTINCT d.Name, d.Version, count(*) ORDER BY count(*) DESC;
+
+MATCH  (d:Products_Win_Inventory_MAP_SampleDB) RETURN DISTINCT d.Name, d.Version, count(*) ORDER BY count(*) DESC;
+
+MATCH  (d:WindowsInstalledSoftwareFull_Win_Assessment_MAP_SampleDB) RETURN DISTINCT d.Vendor, d.Name, d.Version, count(*) ORDER BY d.Vendor, count(*) DESC;
+
+MATCH p = ((d:Devices_Core_Inventory_MAP_SampleDB) -[*1..4]-> (source))
+WHERE (source:Products_HPUX_Inventory_MAP_SampleDB
+OR source:Products_Linux_Inventory_MAP_SampleDB
+OR source:Products_Oracle_Inventory_MAP_SampleDB
+OR source:Products_Win_Inventory_MAP_SampleDB)
+RETURN d, source;
+
+MATCH p = ((d:Devices_Core_Inventory_MAP_SampleDB) -[*1..4]-> (source))
+WHERE (source:Products_HPUX_Inventory_MAP_SampleDB
+OR source:Products_Linux_Inventory_MAP_SampleDB
+OR source:Products_Oracle_Inventory_MAP_SampleDB)
+RETURN d, source;
+
+MERGE  (d:Products_HPUX_Inventory_MAP_SampleDB) SET d._ArchiMate2Type = "Product_ArchiMate2";
+MATCH (n:Products_HPUX_Inventory_MAP_SampleDB)
+CALL apoc.create.addLabels([ id(n) ], [ n._ArchiMate2Type ]) YIELD node
+RETURN count(*);
+MATCH (n:Products_HPUX_Inventory_MAP_SampleDB)
+CALL apoc.create.removeLabels([ id(n) ], [ "Device_ArchiMate2" ]) YIELD node
+RETURN count(*);
+
+MERGE  (d:Products_Linux_Inventory_MAP_SampleDB) SET d._ArchiMate2Type = "Product_ArchiMate2";
+MATCH (n:Products_Linux_Inventory_MAP_SampleDB)
+CALL apoc.create.addLabels([ id(n) ], [ n._ArchiMate2Type ]) YIELD node
+RETURN count(*);
+MATCH (n:Products_Linux_Inventory_MAP_SampleDB)
+CALL apoc.create.removeLabels([ id(n) ], [ "Device_ArchiMate2" ]) YIELD node
+RETURN count(*);
+
+MERGE  (d:Products_Oracle_Inventory_MAP_SampleDB) SET d._ArchiMate2Type = "Product_ArchiMate2";
+MATCH (n:Products_Oracle_Inventory_MAP_SampleDB)
+CALL apoc.create.addLabels([ id(n) ], [ n._ArchiMate2Type ]) YIELD node
+RETURN count(*);
+MATCH (n:Products_Oracle_Inventory_MAP_SampleDB)
+CALL apoc.create.removeLabels([ id(n) ], [ "Device_ArchiMate2" ]) YIELD node
+RETURN count(*);
+
+MATCH p = ((d:Devices_Core_Inventory_MAP_SampleDB) -[*1..4]-> (source))
+WHERE (source:Products_HPUX_Inventory_MAP_SampleDB
+OR source:Products_Linux_Inventory_MAP_SampleDB
+OR source:Products_Oracle_Inventory_MAP_SampleDB)
+RETURN d, source;
+
+MATCH p = ((d:Devices_Core_Inventory_MAP_SampleDB) -[*1..4]-> (source))
+WHERE (source:Products_Win_Inventory_MAP_SampleDB)
+RETURN d, source;
+
+MERGE  (d:Products_Win_Inventory_MAP_SampleDB) SET d._ArchiMate2Type = "Product_ArchiMate2";
+MATCH (n:Products_Win_Inventory_MAP_SampleDB)
+CALL apoc.create.addLabels([ id(n) ], [ n._ArchiMate2Type ]) YIELD node
+RETURN count(*);
+MATCH (n:Products_Win_Inventory_MAP_SampleDB)
+CALL apoc.create.removeLabels([ id(n) ], [ "Device_ArchiMate2" ]) YIELD node
+RETURN count(*);

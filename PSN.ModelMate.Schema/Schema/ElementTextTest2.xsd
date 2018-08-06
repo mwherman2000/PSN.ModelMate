@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="ModelMate" targetNamespace="http://tempuri.org/xsd/modelmate"
+  attributeFormDefault="qualified" elementFormDefault="qualified"
+  xmlns:mstns="http://tempuri.org/xsd/modelmate"
+  xmlns="http://tempuri.org/xsd/modelmate"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+ 
+    <xs:annotation>
+        <xs:documentation>
+This is a test XSD.
+        </xs:documentation>
+    </xs:annotation>
+  
+  <!-- =========================== Repository Types =========================== -->
+
+  <xs:element name="mytopelement" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mynames" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="required" />
+      <xs:attribute name="version" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- =========================== Basic Types =========================== -->
+
+  <xs:element name="mynames" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="myname" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="myname" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string" >
+          <xs:attribute ref="xml:lang" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

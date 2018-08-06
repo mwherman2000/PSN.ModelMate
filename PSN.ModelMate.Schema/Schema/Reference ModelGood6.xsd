@@ -1,0 +1,611 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="ModelMate" targetNamespace="http://www.opengroup.org/xsd/modelmate"
+  attributeFormDefault="qualified" elementFormDefault="qualified"
+  xmlns:mstns="http://www.opengroup.org/xsd/modelmate"
+  xmlns="http://www.opengroup.org/xsd/modelmate"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <!--schemaLocation="http://www.w3.org/2001/xml.xsd"-->
+  
+      <xs:annotation>
+        <xs:documentation>
+XSD Data File Information
+-------------------------
+Author:         Parallelspace Corporation
+Start date:     June 1, 2016
+Revision date:  June 21, 2016
+XSD Version:    1.0
+Status:         Interim Work-in-Progress
+Description:    Parallelspace ModelMate Open Repository Format
+        </xs:documentation>
+        
+        <xs:documentation>
+This is the XSD for the ModelMate Open Repository Format.
+    </xs:documentation>
+    </xs:annotation>
+  
+  <!-- =========================== Repository Types =========================== -->
+
+  <xs:element name="ModelMateRepository" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" >
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded" >
+        <xs:element ref="tenant" />
+        <xs:element ref="folders" />
+        <xs:element ref="folder" />
+        <xs:element ref="models" />
+        
+        <xs:element ref="model" />          <!-- 0 -->
+        <xs:element ref="elements" />       <!-- 6 -->
+        <xs:element ref="relationships" />  <!-- 7 -->
+        <xs:element ref="propertydefs" />   <!-- 5 -->
+        
+        <xs:element ref="properties" />     <!-- 4 -->
+        <xs:element ref="property" />
+        
+        <xs:element ref="organization" />   <!-- 8 -->
+        <xs:element ref="item" />
+        
+        <xs:element ref="metadata" />       <!-- 1 -->
+        <xs:element ref="metadatum" />
+        
+        <xs:element ref="views" />          <!-- 9 -->
+        <xs:element ref="node" />
+        <xs:element ref="connection" />
+        <xs:element ref="style" />
+        
+        <xs:element ref="names" />
+        <xs:element ref="documentations" />
+        <xs:element ref="labels" />
+        
+        <xs:element ref="name" />           <!-- 2 -->
+        <xs:element ref="documentation" />  <!-- 3 -->
+        <xs:element ref="label" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="tenant" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="metadata" minOccurs="0" maxOccurs="1" />
+        <!--<xs:element ref="name" minOccurs="1" maxOccurs="unbounded" />-->
+        <xs:element ref="names" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="propertydefs" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element ref="folders" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="required" />
+      <xs:attribute name="version" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="folders" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="folder" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="folder" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="metadata" minOccurs="0" maxOccurs="1" />
+        <!--<xs:element ref="name" minOccurs="1" maxOccurs="unbounded" />-->
+        <xs:element ref="names" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="propertydefs" minOccurs="0" maxOccurs="1" />
+
+        <xs:element ref="models" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="models" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="model" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+      
+  <!-- ==================================== Model Type ================================= -->
+     
+  <xs:element name="model" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="metadata" minOccurs="0" maxOccurs="1" />
+        <!--<xs:element ref="name" minOccurs="1" maxOccurs="unbounded" />-->
+        <xs:element ref="names" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="propertydefs" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element ref="elements" minOccurs="1" maxOccurs="1" />
+        
+        <xs:element ref="relationships" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element ref="organization" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element ref="views" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="required" />
+      <!--<xs:attribute name="identifier" use="required" type="xs:string" />-->
+      <xs:attribute name="version" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- ==================================== Elements Type ================================= -->
+  
+    <xs:element name="elements" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="element" minOccurs="1" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="labels" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <!--<xs:attribute name="identifier" use="required" type="xs:string" />-->
+            <xs:attribute name="identifier" type="xs:ID" use="required" />
+            <xs:attribute name="type" type="elementtype" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="elementtype">
+    <xs:annotation>
+        <xs:documentation>
+            An enumeration of element types.
+        </xs:documentation>
+    </xs:annotation>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="ApplicationCollaboration" />
+        <xs:enumeration value="ApplicationComponent" />
+        <xs:enumeration value="ApplicationFunction" />
+        <xs:enumeration value="ApplicationInteraction" />
+        <xs:enumeration value="ApplicationInterface" />
+        <xs:enumeration value="ApplicationService" />
+        <xs:enumeration value="Artifact" />
+        <xs:enumeration value="Assessment" />
+        <xs:enumeration value="BusinessActor" />
+        <xs:enumeration value="BusinessCollaboration" />
+        <xs:enumeration value="BusinessEvent" />
+        <xs:enumeration value="BusinessFunction" />
+        <xs:enumeration value="BusinessInteraction" />
+        <xs:enumeration value="BusinessInterface" />
+        <xs:enumeration value="BusinessObject" />
+        <xs:enumeration value="BusinessProcess" />
+        <xs:enumeration value="BusinessRole" />
+        <xs:enumeration value="BusinessService" />
+        <xs:enumeration value="CommunicationPath" />
+        <xs:enumeration value="Constraint" />
+        <xs:enumeration value="Contract" />
+        <xs:enumeration value="DataObject" />
+        <xs:enumeration value="Deliverable" />
+        <xs:enumeration value="Device" />
+        <xs:enumeration value="Driver" />
+        <xs:enumeration value="Gap" />
+        <xs:enumeration value="Goal" />
+        <xs:enumeration value="InfrastructureFunction" />
+        <xs:enumeration value="InfrastructureInterface" />
+        <xs:enumeration value="InfrastructureService" />
+        <xs:enumeration value="Junction" />
+        <xs:enumeration value="Location" />
+        <xs:enumeration value="Meaning" />
+        <xs:enumeration value="Network" />
+        <xs:enumeration value="Node" />
+        <xs:enumeration value="Plateau" />
+        <xs:enumeration value="Principle" />
+        <xs:enumeration value="Product" />
+        <xs:enumeration value="Representation" />
+        <xs:enumeration value="Requirement" />
+        <xs:enumeration value="Stakeholder" />
+        <xs:enumeration value="SystemSoftware" />
+        <xs:enumeration value="Value" />
+        <xs:enumeration value="WorkPackage" />
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <!-- ==================================== Relationship Types ================================= -->
+ 
+  <xs:element name="relationships" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="relationship" minOccurs="1" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="labels" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attribute name="identifier" type="xs:ID" use="required" />
+            <xs:attribute name="source" type="xs:IDREF" use="required" />
+            <xs:attribute name="target" type="xs:IDREF" use="required" />
+            <xs:attribute name="type" type="relationshiptype" use="required" />
+            <!--<xs:attribute name="identifier" use="required" type="xs:string" />-->
+            <!--<xs:attribute name="source" use="required" type="xs:string" />-->
+            <!--<xs:attribute name="target" use="required" type="xs:string" />-->
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="relationshiptype">
+    <xs:annotation>
+        <xs:documentation>
+            An enumeration of relationship types.
+        </xs:documentation>
+    </xs:annotation>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="AccessRelationship" />
+        <xs:enumeration value="AggregationRelationship" />
+        <xs:enumeration value="AssignmentRelationship" />
+        <xs:enumeration value="AssociationRelationship" />
+        <xs:enumeration value="CompositionRelationship" />
+        <xs:enumeration value="FlowRelationship" />
+        <xs:enumeration value="InfluenceRelationship" />
+        <xs:enumeration value="RealisationRelationship" />
+        <xs:enumeration value="SpecialisationRelationship" />
+        <xs:enumeration value="TriggeringRelationship" />
+        <xs:enumeration value="UsedByRelationship" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- ==================================== Property Definition Types ================================= -->
+
+  <xs:element name="propertydefs" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="propertydef" minOccurs="1" maxOccurs="unbounded" >
+          <xs:complexType>
+            <!--<xs:attribute name="identifier" use="required" type="xs:string" />-->
+            <!--<xs:attribute name="name" use="required" type="xs:string" />-->
+            <!--<xs:attribute name="type" use="required" type="xs:string" />-->
+            <xs:attribute name="identifier" type="xs:ID" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="type" type="datatype" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="datatype">
+    <xs:annotation>
+        <xs:documentation>
+            An enumeration of data types.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="string" />
+        <xs:enumeration value="boolean" />
+        <xs:enumeration value="currency" />
+        <xs:enumeration value="date" />
+        <xs:enumeration value="time" />
+        <xs:enumeration value="number" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- ==================================== Property Types =========================================== -->
+  
+  <xs:element name="properties" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="property" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="property" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="value" minOccurs="1" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string" >
+                <xs:attribute ref="xml:lang" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <!--<xs:attribute name="identifierref" use="required" type="xs:string" />-->
+      <xs:attribute name="identifierref" type="xs:IDREF" use="required" />
+    </xs:complexType>
+  </xs:element>
+                
+  <!-- ==================================== Organization Types ================================= -->
+  
+  <xs:element name="organization" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="item" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+    <xs:element name="item" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="labels" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="item" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="optional" />
+      <xs:attribute name="identifierref" type="xs:IDREF" use="optional" />
+      <!--<xs:attribute name="identifierref" use="required" type="xs:string" />-->
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- =========================== Metadata Types ========================== -->
+  
+  <xs:element name="metadata" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="metadatum" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="metadatum" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="schema" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="schemaversion" type="xs:string" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- =========================== View Types ========================== -->
+  
+   <xs:element name="views" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="view" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="view" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="labels" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="connection" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="identifier" type="xs:ID" use="required" />
+      <xs:attribute name="viewpoint" use="optional" type="viewpointsEnum" />
+      <!--<xs:attribute name="identifier" use="required" type="xs:string" />-->
+      <!--<xs:attribute name="viewpoint" use="required" type="xs:string" />-->
+    </xs:complexType>
+  </xs:element>
+    
+  <xs:simpleType name="viewpointsEnum" >
+    <xs:annotation>
+      <xs:documentation>
+        Enumeration of Viewpoint types.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" >
+      <xs:enumeration value="Introductory"/>
+      <xs:enumeration value="Organization"/>
+      <xs:enumeration value="Actor Co-operation"/>
+      <xs:enumeration value="Business Function"/>
+      <xs:enumeration value="Business Process"/>
+      <xs:enumeration value="Business Process Co-operation"/>
+      <xs:enumeration value="Product"/>
+      <xs:enumeration value="Application Behavior"/>
+      <xs:enumeration value="Application Co-operation"/>
+      <xs:enumeration value="Application Structure"/>
+      <xs:enumeration value="Application Usage"/>
+      <xs:enumeration value="Infrastructure"/>
+      <xs:enumeration value="Infrastructure Usage"/>
+      <xs:enumeration value="Implementation and Deployment"/>
+      <xs:enumeration value="Information Structure"/>
+      <xs:enumeration value="Service Realization"/>
+      <xs:enumeration value="Layered"/>
+      <xs:enumeration value="Landscape Map"/>
+      <xs:enumeration value="Stakeholder"/>
+      <xs:enumeration value="Goal Realization"/>
+      <xs:enumeration value="Goal Contribution"/>
+      <xs:enumeration value="Principles"/>
+      <xs:enumeration value="Requirements Realization"/>
+      <xs:enumeration value="Motivation"/>
+      <xs:enumeration value="Project"/>
+      <xs:enumeration value="Migration"/>
+      <xs:enumeration value="Implementation and Migration"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- =========================== Node Types ========================== -->
+  
+  <xs:element name="node" >
+    <xs:complexType>
+      <xs:sequence>
+        <!--<xs:element ref="style" minOccurs="0" maxOccurs="unbounded" />-->
+        <!--<xs:element ref="labels" minOccurs="0" maxOccurs="1" />-->
+        <!--<xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />-->
+        <xs:element ref="labels" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="style" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="identifier" use="required" type="xs:ID" />
+      <xs:attribute name="elementref" type="xs:IDREF" use="optional" />
+      <!--<xs:attribute name="identifier" use="required" type="xs:string" />-->
+      <!--<xs:attribute name="elementref" use="required" type="xs:string" />-->
+      <xs:attribute name="x" use="required" type="xs:integer" />
+      <xs:attribute name="y" use="required" type="xs:integer" />
+      <xs:attribute name="w" use="required" type="xs:integer" />
+      <xs:attribute name="h" use="required" type="xs:integer" />
+      <xs:attribute name="type" use="optional" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+      
+  <!-- =========================== Connection Types ========================== -->
+  
+  <xs:element name="connection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="labels" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="documentations" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="properties" minOccurs="0" maxOccurs="1" />
+        <xs:element name="bendpoint" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:attribute name="x" use="required" type="xs:integer" />
+            <xs:attribute name="y" use="required" type="xs:integer" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="style" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="identifier" use="required" type="xs:ID" />
+      <xs:attribute name="relationshipref" type="xs:IDREF" use="optional" />
+      <xs:attribute name="source" type="xs:IDREF" use="required" />
+      <xs:attribute name="target" type="xs:IDREF" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- =========================== Style Types ========================== -->
+  
+  <xs:element name="style" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fillColor" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:attribute name="r" use="required" type="xs:integer" />
+            <xs:attribute name="g" use="required" type="xs:integer" />
+            <xs:attribute name="b" use="required" type="xs:integer" />
+            <!--<xs:attribute name="a" use="required" type="xs:integer" />-->
+            <xs:attribute name="a" use="optional" >
+              <xs:simpleType>
+                <xs:restriction base="xs:integer" >
+                  <xs:minInclusive value="0"/>
+                  <xs:maxInclusive value="100"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="lineColor" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:attribute name="r" use="required" type="xs:integer" />
+            <xs:attribute name="g" use="required" type="xs:integer" />
+            <xs:attribute name="b" use="required" type="xs:integer" />
+            <!--<xs:attribute name="a" use="required" type="xs:integer" />-->
+            <xs:attribute name="a" use="optional" >
+              <xs:simpleType>
+                <xs:restriction base="xs:integer" >
+                  <xs:minInclusive value="0"/>
+                  <xs:maxInclusive value="100"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="font" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="color" minOccurs="0" maxOccurs="unbounded" >
+                <xs:complexType>
+                  <xs:attribute name="r" use="required" type="xs:integer" />
+                  <xs:attribute name="g" use="required" type="xs:integer" />
+                  <xs:attribute name="b" use="required" type="xs:integer" />
+                  <!--<xs:attribute name="a" use="required" type="xs:integer" />-->
+                  <xs:attribute name="a" use="optional" >
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer" >
+                        <xs:minInclusive value="0"/>
+                        <xs:maxInclusive value="100"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <!--<xs:attribute name="name" use="required" type="xs:string" />-->
+            <!--<xs:attribute name="size" use="required" type="xs:string" />-->
+            <!--<xs:attribute name="style" use="required" type="xs:string" />-->
+            <xs:attribute name="names" type="xs:string" use="optional"/>
+            <xs:attribute name="size" type="xs:decimal" use="optional"/>
+            <xs:attribute name="style" type="xs:string" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <!--<xs:attribute name="lineWidth" use="required" type="xs:string" />-->
+      <xs:attribute name="lineWidth" use="optional" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- =========================== Basic Types =========================== -->
+
+  <xs:element name="names" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="name" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string" >
+          <xs:attribute ref="xml:lang" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="documentations" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="documentation" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="documentation" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string" >
+          <xs:attribute ref="xml:lang" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="labels" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="label" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="label" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string" >
+          <xs:attribute ref="xml:lang" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
